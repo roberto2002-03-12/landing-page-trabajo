@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*
+.navbar-landing {
+    background-color: transparent !important;
+}
+*/
+
+.navbar-landing {
+    background-color: #F44E77;
+}
+
+.navbar-landing-a a {
+    color: white;
+}
+
+.landing-header {
+    background-image: url('../img/BG.svg');
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+.landing-header-content {
+    padding-top: 100px;
+}
+
+.landing-header-img img {
+    width: 620px;
+    height: 300px;
+}
+
+.landing-header-title h1 {
+    color: white;
+}
+
+.landing-header-title p {
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.landing-header-content hr {
+    color: white;
+    border-width: 3px;
+}
+
+/*¿Quienes somos?*/
+
+.landing-section-1 {
+    width: 100%;
+    height: 700px;
+}
+
+.landing-section-1 h4 {
+    color: #554DDE;
+    text-align: center;
+    padding-top: 200px;
+    font-size: 40px;
+}
+
+.section-1-texto p {
+    color: #6A6D9E;
+    text-align: justify;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.section-1-texto div {
+    width: 350px;
+}
+
+.section-1-texto {
+    display: flex;
+    justify-content: center;
+}
+
+.section-1-img img {
+    width: 450px;
+    height: 250px;
+}
+
+.section-1-img {
+    text-align: center;
+}
+
+.landing-section-1-contexto {
+    padding-top: 75px;
+}
+
+/*Experiencia*/
+
+.section-2-note img {
+    width: 75px;
+    height: 68px;
+}
+
+.section-2-note {
+    display: flex;
+}
+
+.section-2-note p {
+    font-size: 15px;
+    color: #6A6D9E;
+}
+
+.section-2-note h5 {
+    font-size: 15px;
+    color: #6A6D9E;
+    font-weight: bold;
+}
+
+.section-2-note-text {
+    padding-left: 5px;
+}
+
+.section-2-text div {
+    width: 366px;
+}
+
+.section-2-text h4 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #554DDE;
+}
+
+.section-2-text p {
+    font-size: 20px;
+    color: #6A6D9E;
+}
+
+.section-2-text {
+    display: flex;
+    justify-content: center;
+}
+
+.landing-section-2 .row {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+/*Servicios*/
+
+.landing-section-3 {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-3-card {
+    background-color: #554DDE;
+}
+
+.section-3-card-text p {
+    font-size: 15px;
+    text-align: justify;
+    color: white;
+    padding: 5px;
+}
+
+.section-3-card-text h4 {
+    font-size: 18px;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+}
+
+.section-3-card-img {
+    text-align: center;
+}
+
+.section-3-card-img img {
+    width: 150px;
+    height: 150px;
+}
+
+.section-3-title {
+    font-size: 40px;
+    color: #554DDE;
+    padding-bottom: 30px;
+}
+
+/*Nuestros clientes*/
+.section-4-h4 {
+    text-align: center;
+    padding-top: 100px;
+    color: #554DDE;
+    font-size: 40px;
+}
+
+.section-4-coursel {
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Nuestros planes*/
+
+.landing-section-5 .row {
+    padding: 0;
+    margin: 0;
+}
+
+.landing-section-5 {
+    background-color: #554DDE;
+    height: 1000px;
+    width: 100%;
+}
+
+.section-5-card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-5-card-title {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+
+.section-5-card-title h4 {
+    font-size: 35px;
+    padding-top: 30px;
+}
+
+.section-5-card-title p {
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+.caracteristicas-opciones {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+}
+
+.caracteristicas-opciones span {
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+.section-5-caracteristicas {
+    height: 425px;
+}
+
+.section-5-button {
+    height: 125px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-5-title {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+
+/*Arquitectura*/
+
+.landing-section-6 {
+    height: 1000px;
+    width: 100%;
+}
+
+.landing-section-6 .row {
+    padding: 0;
+    margin: 0;
+}
+
+.landing-arquitectura-info {
+    padding-top: 150px;
+}
+
+.landing-arquitectura-img {
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-arquitectura-img img {
+    height: 575px;
+    width: 600px;
+}
+
+.arq-info {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.arq-info h4 {
+    font-size: 40px;
+    color: #554DDE;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.arq-info p {
+    font-size: 20px;
+    text-align: justify;
+    color: #6A6D9E;
+}
+
+.arq-info-puntos {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.arq-punto {
+    width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.arq-text {
+    padding-left: 20px;
+}
+
+.arq-text p {
+    font-size: 20px;
+    color: #6A6D9E;
+    text-align: justify;
+}
+
+.arq-text h5 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #6A6D9E;
+    text-align: left;
+    padding-top: 15px;
+}
