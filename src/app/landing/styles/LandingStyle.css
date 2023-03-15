@@ -339,3 +339,190 @@
     text-align: left;
     padding-top: 15px;
 }
+
+/*Beneficios*/
+
+.landing-section-7 {
+    height: 760px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.landing-box-beneficio {
+    display: flex;
+    width: 405px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.landing-box-beneficio-text {
+    padding-left: 15px;
+    width: 320px;
+    height: 85px;
+}
+
+.landing-box-beneficio-text h5 {
+    font-size: 18px;
+    color: #6A6D9E;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+.landing-box-beneficio-text p {
+    font-size: 14px;
+    color: #6A6D9E;
+    padding: 0;
+    margin: 0;
+}
+
+.landing-section-7 .row {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.landing-beneficios-1 {
+    height: 435px;
+}
+
+.landing-beneficios-2 {
+    height: 435px;
+}
+
+.landing-section-7 .row h4 {
+    font-size: 40px;
+    color: #554DDE;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Agendar Demo*/
+
+.landing-section-8 {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items: center;
+}
+
+.landing-section-8 .row {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.landing-section-8 .row h4 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #554DDE;
+    padding-bottom: 50px;
+}
+
+.agendar-demo-1 div {
+    width: 460px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.agendar-demo-1 div p {
+    padding-top: 20px;
+    font-size: 22px;
+    color: #6A6D9E;
+    text-align: justify;
+}
+
+.agendar-demo-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Metodos de pago*/
+
+.landing-section-9 {
+    width: 100%;
+    height: 700px;
+
+    display: flex;
+    align-items: center;
+}
+
+.landing-section-9 .row {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.metodos-pagos-1 .content {
+    width: 400px;
+    height: 225px;
+}
+
+.metodos-pagos-1 p {
+    font-size: 22px;
+    color: #6A6D9E;
+    text-align: justify;
+}
+
+.metodos-pagos-1 h5 {
+    font-size: 40px;
+    color: #554DDE;
+    text-align: justify;
+}
+
+.metodo-pagos-content {
+    width: 400px;
+    height: 180px;
+}
+
+.metodos-pagos-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.metodos-pagos-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*blog*/
+.landing-section-10 {
+    background-color: #554DDE;
+    width: 100%;
+    height: 350px;
+}
+
+.landing-section-10 .row {
+    padding: 0;
+    margin: 0;
+    height: 350px;
+}
+
+.visita-blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visita-blog-content {
+    width: 490px;
+    height: 240px;
+    text-align: center;
+}
+
+.visita-blog-content h4 {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+
+.visita-blog-content p {
+    font-size: 24px;
+    padding-top: 10px;
+    color: white;
+}

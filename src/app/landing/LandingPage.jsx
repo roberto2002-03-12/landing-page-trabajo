@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import './styles/LandingStyle.css';
 import { NavBar, QuienesSomos, NuestraExperiencia, NuestrosServicios, 
-         NuestrosClientes, NuestrosPlanes, Arquitectura } from './components'
+         NuestrosClientes, NuestrosPlanes, Arquitectura,
+         Beneficios, AgendarDemo, MetodosPagos, VisitaBlog, Footer } from './components'
 import EjemploImg from './img/ejemplo.png';
 import { Button } from '@mui/material';
 //import '@splidejs/splide/css';
@@ -72,6 +73,11 @@ export const LandingPage = () => {
       <NuestrosClientes />
       <NuestrosPlanes />
       <Arquitectura />
+      <Beneficios />
+      <AgendarDemo />
+      <MetodosPagos />
+      <VisitaBlog />
+      <Footer />
     </>
   )
 }

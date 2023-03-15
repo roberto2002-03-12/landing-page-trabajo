@@ -5,3 +5,8 @@ export * from './NuestrosServicios';
 export * from './NuestrosClientes';
 export * from './NuestrosPlanes';
 export * from './Arquitectura';
+export * from './Beneficios';
+export * from './AgendarDemo';
+export * from './MetodosPagos';
+export * from './Footer';
+export * from './VisitaBlog'
