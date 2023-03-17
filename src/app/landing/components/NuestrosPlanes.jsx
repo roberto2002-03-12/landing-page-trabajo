@@ -20,7 +20,7 @@ const cardStyle = {
 export const NuestrosPlanes = memo(() => {
     console.log('deberia renderizarme una vez')
     return (
-        <section className="landing-section-5">
+        <section className="landing-section-5" id='landing-section-5'>
             <h4 className='section-5-title'>Nuestros planes</h4>
 
             <div className="row">
@@ -172,7 +172,7 @@ export const NuestrosPlanes = memo(() => {
                         </div>
                     </Card>
                 </div>
-                <div className="section-5-card-container col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                <div className="section-5-card-container col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                     <Card
                         style={cardStyle}
                     >

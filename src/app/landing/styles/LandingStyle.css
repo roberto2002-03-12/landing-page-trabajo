@@ -8,6 +8,11 @@
 }
 */
 
+.nav-link-custom {
+    cursor: pointer;
+    color: white;
+}
+
 .navbar-landing {
     background-color: #F44E77;
 }
@@ -19,7 +24,7 @@
 .landing-header {
     background-image: url('../img/BG.svg');
     background-size: cover;
-    height: 500px;
+    height: 700px;
     width: 100%;
 }
 
@@ -27,10 +32,12 @@
     padding-top: 100px;
 }
 
+/*
 .landing-header-img img {
     width: 620px;
     height: 300px;
 }
+*/
 
 .landing-header-title h1 {
     color: white;
@@ -45,6 +52,28 @@
 .landing-header-content hr {
     color: white;
     border-width: 3px;
+}
+
+.landing-header-form {
+    display: flex;
+    justify-content: center;
+}
+
+.landing-header-form h5 {
+    padding-top: 25px;
+    color: #747474;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.header-form-text {
+    width: 345px;
+    margin: 0 auto;
+}
+
+.header-form-text p {
+    color: #747474;
+    font-size: 18px;
 }
 
 /*¿Quienes somos?*/
@@ -99,6 +128,7 @@
 
 .section-2-note {
     display: flex;
+    justify-content: center;
 }
 
 .section-2-note p {
@@ -114,6 +144,16 @@
 
 .section-2-note-text {
     padding-left: 5px;
+}
+
+.section-2-note-text p {
+    padding: 0;
+    margin: 0;
+}
+
+.section-2-note-text h5 {
+    padding: 0;
+    margin: 0;
 }
 
 .section-2-text div {
@@ -142,6 +182,12 @@
 }
 
 /*Servicios*/
+
+.section-3-container-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .landing-section-3 {
     height: 700px;
@@ -320,6 +366,7 @@
     width: 500px;
     display: flex;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 .arq-text {
@@ -330,6 +377,8 @@
     font-size: 20px;
     color: #6A6D9E;
     text-align: justify;
+    padding: 0;
+    margin: 0;
 }
 
 .arq-text h5 {
@@ -337,7 +386,8 @@
     font-weight: bold;
     color: #6A6D9E;
     text-align: left;
-    padding-top: 15px;
+    padding: 0;
+    margin: 0;
 }
 
 /*Beneficios*/
@@ -352,8 +402,11 @@
 .landing-box-beneficio {
     display: flex;
     width: 405px;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
     padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .landing-box-beneficio-text {
@@ -525,4 +578,550 @@
     font-size: 24px;
     padding-top: 10px;
     color: white;
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .landing-arquitectura-img img {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    /*Dar espacio*/
+    .landing-section-2 {
+        padding-bottom: 50px;
+    }
+
+    .landing-section-3 {
+        padding-bottom: 50px;
+    }
+
+    .landing-section-4 {
+        padding-bottom: 50px;
+    }
+
+
+
+    /*Landing header*/
+    .landing-header-title div {
+        text-align: center;
+    }
+
+    .landing-header {
+        height: auto;
+    }
+
+    .landing-header-form {
+        padding-bottom: 50px;
+    }
+
+    .contactenos-button {
+        text-align: center;
+    }
+
+    /*Nuestros servicios*/
+    .section-3-title {
+        text-align: center;
+    }
+
+    .landing-section-3 {
+        height: auto;
+        width: 100%;
+    }
+
+    .section-3-container-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-bottom: 50px;
+    }
+
+    /*Quienes somos*/
+
+    .section-1-img img {
+        width: 340px;
+        height: auto;
+    }
+
+    /*Nuestros planes*/
+    .landing-section-5 {
+        background-color: #554DDE;
+        height: auto;
+        width: 100%;
+    }
+
+    .landing-section-5 .row {
+        padding-bottom: 50px;
+    }
+    
+    .card-content-mui {
+        padding-bottom: 50px;
+    }
+
+    .section-5-card-container {
+        padding-bottom: 50px;
+    }
+
+    /*Arquitectura*/
+    .landing-section-6 {
+        height: auto;
+        width: 100%;
+    }
+
+    .landing-section-6 .row {
+        padding-bottom: 150px;
+    }
+
+    .arq-info {
+        width: 100%;
+    }
+
+    .arq-info-puntos {
+        width: 100%;
+        padding-top: 30px;
+    }
+
+    .arq-punto {
+        width: 100%;
+    }
+
+    .landing-arquitectura-info {
+        padding-top: 50px;
+    }
+
+    .landing-arquitectura-img img {
+        height: auto;
+        width: 100%;
+    }
+
+    /*Beneficios*/
+    .landing-section-7 {
+        height: auto;
+        width: 100%;
+        padding-bottom: 200px;
+    }
+
+    .landing-box-beneficio-text {
+        width: 250px;
+        height: 85px;
+    }
+
+    .landing-box-beneficio {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .landing-beneficios-1 {
+        padding-top: 60px;
+    }
+
+    .landing-beneficios-2 {
+        padding-top: 60px;
+    }
+
+    /*Agendar demo*/
+    .agendar-demo-1 div {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .agendar-demo-1 div p {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .agendar-demo-2 img {
+        width: 312px;
+        height: 200px;
+    }
+
+    .landing-section-8 .row h4 {
+        padding-bottom: 0px;
+    }
+
+    .landing-section-8 {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    /*Metodos de pagos*/
+    .metodos-pagos-2 img {
+        width: 350px;
+        height: 274px;
+    }
+    
+    /*Blog*/
+    .visita-blog-content {
+        width: 100%;
+        height: auto;
+    }
+
+    /*Nuestros clientes*/
+    .section-4-coursel img {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .section-4-coursel {
+        height: 400px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+    /*Landing header*/
+    .landing-header-title div {
+        text-align: center;
+    }
+
+    .landing-header {
+        height: auto;
+    }
+
+    .landing-header-form {
+        padding-bottom: 50px;
+    }
+
+    .contactenos-button {
+        text-align: center;
+    }
+
+    /*Experiencia*/
+    .section-2-grid {
+        padding-top: 30px;
+    }
+
+    /*Nuestros servicios*/
+    .section-3-title {
+        text-align: center;
+    }
+
+    .landing-section-3 {
+        height: auto;
+        width: 100%;
+    }
+
+    .section-3-container-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-bottom: 50px;
+    }
+
+    /*Quienes somos*/
+
+    .section-1-img img {
+        display: none;
+    }
+
+    /*Nuestros planes*/
+    .landing-section-5 {
+        background-color: #554DDE;
+        height: auto;
+        width: 100%;
+    }
+
+    .landing-section-5 .row {
+        padding-bottom: 50px;
+    }
+    
+    .card-content-mui {
+        padding-bottom: 50px;
+    }
+
+    .section-5-card-container {
+        padding-bottom: 50px;
+    }
+
+    /*Arquitectura*/
+    .landing-section-6 {
+        height: auto;
+        width: 100%;
+    }
+
+    .landing-section-6 .row {
+        padding-bottom: 150px;
+    }
+
+    .arq-info {
+        width: 100%;
+    }
+
+    .arq-info-puntos {
+        width: 100%;
+        padding-top: 30px;
+    }
+
+    .arq-punto {
+        width: 100%;
+    }
+
+    .landing-arquitectura-img {
+        display: none;
+    }
+
+    /*Beneficios*/
+    .landing-section-7 {
+        height: auto;
+        width: 100%;
+        padding-bottom: 200px;
+    }
+
+    .landing-box-beneficio-text {
+        width: 250px;
+        height: 85px;
+    }
+
+    .landing-box-beneficio {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .landing-beneficios-2 {
+        padding-top: 60px;
+    }
+
+    /*Agendar demo*/
+    .agendar-demo-1 div {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .agendar-demo-1 div p {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .agendar-demo-2 img {
+        width: 312px;
+        height: 200px;
+    }
+
+    .landing-section-8 .row h4 {
+        padding-bottom: 0px;
+    }
+
+    .landing-section-8 {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    /*Metodos de pagos*/
+    .metodos-pagos-2 img {
+        width: 350px;
+        height: 274px;
+    }
+    
+    /*Blog*/
+    .visita-blog-content {
+        width: 100%;
+        height: auto;
+    }
+
+    /*Nuestros clientes*/
+    .section-4-coursel img {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .section-4-coursel {
+        height: 400px;
+    }
+}
+
+/*Lado responsive Celular*/
+@media (max-width: 600px) {
+    .landing-header-form h5 {
+        padding-top: 25px;
+        color: #747474;
+        font-weight: bold;
+        font-size: 22px;
+    }
+    
+    .header-form-text {
+        width: 297.5px;
+        margin: 0 auto;
+    }
+    
+    .header-form-text p {
+        color: #747474;
+        font-size: 18px;
+    }
+
+    /*Landing header*/
+    .landing-header-title div {
+        text-align: center;
+    }
+
+    .landing-header {
+        height: auto;
+    }
+
+    .landing-header-form {
+        padding-bottom: 50px;
+    }
+
+    .contactenos-button {
+        text-align: center;
+    }
+
+    /*Experiencia*/
+    .section-2-grid {
+        padding-top: 30px;
+    }
+
+    /*Nuestros servicios*/
+    .section-3-title {
+        text-align: center;
+    }
+
+    .landing-section-3 {
+        height: auto;
+        width: 100%;
+    }
+
+    .section-3-container-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-bottom: 50px;
+    }
+
+    /*Quienes somos*/
+
+    .section-1-img img {
+        display: none;
+    }
+
+    /*Nuestros planes*/
+    .landing-section-5 {
+        background-color: #554DDE;
+        height: auto;
+        width: 100%;
+    }
+
+    .landing-section-5 .row {
+        padding-bottom: 50px;
+    }
+    
+    .card-content-mui {
+        padding-bottom: 50px;
+    }
+
+    .section-5-card-container {
+        padding-bottom: 50px;
+    }
+
+    /*Arquitectura*/
+    .landing-section-6 {
+        height: auto;
+        width: 100%;
+    }
+
+    .landing-section-6 .row {
+        padding-bottom: 150px;
+    }
+
+    .arq-info {
+        width: 100%;
+    }
+
+    .arq-info-puntos {
+        width: 100%;
+        padding-top: 30px;
+    }
+
+    .arq-punto {
+        width: 100%;
+    }
+
+    .landing-arquitectura-img {
+        display: none;
+    }
+
+    /*Beneficios*/
+    .landing-section-7 {
+        height: auto;
+        width: 100%;
+        padding-bottom: 200px;
+    }
+
+    .landing-box-beneficio-text {
+        width: 250px;
+        height: 85px;
+    }
+
+    .landing-box-beneficio {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .landing-beneficios-2 {
+        padding-top: 60px;
+    }
+
+    /*Agendar demo*/
+    .agendar-demo-1 div {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .agendar-demo-1 div p {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .agendar-demo-2 img {
+        width: 312px;
+        height: 200px;
+    }
+
+    .landing-section-8 .row h4 {
+        padding-bottom: 0px;
+    }
+
+    .landing-section-8 {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    /*Metodos de pagos*/
+    .metodos-pagos-2 img {
+        width: 350px;
+        height: 274px;
+    }
+    
+    /*Blog*/
+    .visita-blog-content {
+        width: 100%;
+        height: auto;
+    }
+
+    /*Nuestros clientes*/
+    .section-4-coursel img {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .section-4-coursel {
+        height: 400px;
+    }
 }

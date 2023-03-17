@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 import BancosImg from '../img/bancos.svg';
 
-export const MetodosPagos = () => {
+export const MetodosPagos = memo(() => {
     return (
         <section className="landing-section-9">
             <div className="row">
@@ -17,4 +17,4 @@ export const MetodosPagos = () => {
             </div>
         </section>
     )
-}
+});

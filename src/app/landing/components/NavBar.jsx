@@ -1,4 +1,5 @@
 import '../styles/LandingStyle.css';
+import ScrollIntoView from 'react-scroll-into-view';
 
 export const NavBar = ({ isScrolled }) => {
     return (//navbar navbar-landing navbar-expand-lg bg-dark fixed-top
@@ -10,11 +11,19 @@ export const NavBar = ({ isScrolled }) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav mx-auto">
-                        <a className="nav-link" href="#">¿Quienes somos?</a>
-                        <a className="nav-link" href="#">Nuestros servicios</a>
-                        <a className="nav-link" href="#">Planes</a>
-                        <a className="nav-link" href="#">Demo</a>
-                        <a className="nav-link" href="#">Blog</a>
+                        <ScrollIntoView selector='#landing-section-1'>
+                            <a className="nav-link nav-link-custom">¿Quienes somos?</a>
+                        </ScrollIntoView>
+                        <ScrollIntoView selector='#landing-section-3'>
+                            <a className="nav-link nav-link-custom">Nuestros servicios</a>
+                        </ScrollIntoView>
+                        <ScrollIntoView selector='#landing-section-5'>
+                            <a className="nav-link nav-link-custom">Planes</a>
+                        </ScrollIntoView>
+                        <ScrollIntoView selector='#landing-section-8'>
+                            <a className="nav-link nav-link-custom">Demo</a>
+                        </ScrollIntoView>
+                        <a className="nav-link">Blog</a>
                     </div>
                 </div>
             </div>

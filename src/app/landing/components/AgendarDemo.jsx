@@ -1,10 +1,10 @@
-import React from 'react';
+import { memo } from 'react';
 import AgendarImg from '../img/agendar.svg';
 import { Button } from '@mui/material';
 
-export const AgendarDemo = () => {
+export const AgendarDemo = memo(() => {
   return (
-    <section className="landing-section-8">
+    <section className="landing-section-8" id='landing-section-8'>
         <div className="row">
             <h4>¡Agenda una demo!</h4>
             <div className="agendar-demo-1 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -32,4 +32,4 @@ export const AgendarDemo = () => {
         </div>
     </section>
   )
-}
+});

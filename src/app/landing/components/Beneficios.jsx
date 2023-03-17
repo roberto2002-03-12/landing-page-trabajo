@@ -6,7 +6,7 @@ import FacturaImg from '../img/factura.svg';
 import SmileImg from '../img/smile.svg';
 import WhatsappImg from '../img/whatsapp.svg';
 
-export const Beneficios = () => {
+export const Beneficios = memo(() => {
   return (
     <section className='landing-section-7'>
       <div className="row">
@@ -37,7 +37,7 @@ export const Beneficios = () => {
           </div>
         </div>
         <div className="landing-beneficios-2 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-        <div className="landing-box-beneficio">
+          <div className="landing-box-beneficio">
             <img src={AdobeImg} alt="" />
             <div className="landing-box-beneficio-text">
                 <h5>Notas de Venta y pedidos</h5>
@@ -62,4 +62,4 @@ export const Beneficios = () => {
       </div>
     </section>
   )
-}
+});

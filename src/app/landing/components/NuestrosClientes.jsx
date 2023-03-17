@@ -17,6 +17,37 @@ import UdemyExample from '../img/udemy-logo-letra-150x150.jpg';
 import LyricalLemonadeExample from '../img/lyrical_lemonade.png';
 import TeslaExample from '../img/tesla.png';
 
+const options = {
+    perPage: 6,
+    perMove: 6,
+    gap: 4,
+    height: '300px',
+    width: '1100px',
+    autoplay: true,
+    type: 'loop',
+    arrows: false,
+    pagination: false,
+    breakpoints: {
+        1200: {
+            perPage: 5,
+            perMove: 5,
+            width: '800px'
+        },
+        992: {
+            perPage: 5,
+            perMove: 5,
+            width: '675px',
+        },
+        576: {
+            perPage: 2,
+            perMove: 2,
+            width: '350px',
+            height: '180px',
+            gap: 1
+        }
+    },
+};
+
 export const NuestrosClientes = memo(() => {
     
     return (
@@ -27,17 +58,7 @@ export const NuestrosClientes = memo(() => {
             </h4>
             <div className="section-4-coursel">
                 <Splide
-                    options={{
-                        perPage: 6,
-                        height: '300px',
-                        gap: 4,
-                        width: '1100px',
-                        autoplay: 1000,
-                        type: 'loop',
-                        arrows: false,
-                        pagination: false,
-                        
-                    }}
+                    options={options}
                 >
                     <SplideSlide>
                         <img src={AmazonExample} alt="Ejemplo"/>

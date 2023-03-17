@@ -3,7 +3,7 @@ import QuienesSomosImg from '../img/section-1.jpg';
 
 export const QuienesSomos = memo(() => {
   return (
-    <section className='landing-section-1'>
+    <section className='landing-section-1' id='landing-section-1'>
         <div className="container">
             <h4>¿Quienes somos?</h4>
             <div className="row landing-section-1-contexto justify-content-center">

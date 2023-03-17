@@ -1,14 +1,66 @@
 import { useState, useEffect } from 'react';
+import { useForm } from '../../hooks';
 import './styles/LandingStyle.css';
+import '@splidejs/react-splide/css';
 import { NavBar, QuienesSomos, NuestraExperiencia, NuestrosServicios, 
          NuestrosClientes, NuestrosPlanes, Arquitectura,
          Beneficios, AgendarDemo, MetodosPagos, VisitaBlog, Footer } from './components'
-import EjemploImg from './img/ejemplo.png';
-import { Button } from '@mui/material';
-//import '@splidejs/splide/css';
-import '@splidejs/react-splide/css';
+import { Button, Card, TextField } from '@mui/material';
+
+const inputStyle = {
+  width: '345px',
+  marginTop: '20px',
+  borderColor: '#554DDE',
+  '@media (max-width: 768px)': {
+    width: '297.5px'
+  }
+}
+
+/*Datos del formulario*/
+const formularioCampos = {
+  nombreCompleto: '',
+  numeroCelular: '',
+  mensaje: '',
+}
+/*Validacion*/
+const formularioCamposValidaciones = {
+  nombreCompleto: [(value) => value.length >= 8, 'No has puesto tu nombre completo'],
+  numeroCelular: [(value) => value.length >=  7, 'Número de celular no valido']
+}
 
 export const LandingPage = () => {
+  /*Formulario*/
+  const {
+    nombreCompleto,
+    numeroCelular,
+    mensaje,
+    onInputChange,
+
+    nombreCompletoValid,
+    numeroCelularValid,
+    isFormValid,
+    formState,
+    onResetForm
+  } = useForm(formularioCampos, formularioCamposValidaciones);
+
+  const [formSubmited, setFormSubmited] = useState(false);
+
+  const onSubmitMensaje = (event) => {
+    //prevenir que se refresque la página
+    event.preventDefault();
+
+    setFormSubmited(true);
+
+    if (!isFormValid) return;
+
+    //ToDo enviarMensaje
+    console.log(formState);
+
+    //resetear formulario
+    onResetForm();
+  }
+
+  /*Scroll*/
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -47,21 +99,112 @@ export const LandingPage = () => {
                 emprendedores y empresas de software.
               </p>
               <hr />
-              <Button
-                variant='contained'
+              <div>
+                <Button
+                  className='contactenos-button'
+                  variant='contained'
+                  sx={{
+                    borderRadius: '20px',
+                    backgroundColor: '#16194F',
+                    '&:hover': {
+                      backgroundColor: '#4D53C3'
+                    },
+                    '@media (max-width: 768px)' : {
+                      marginTop: '15px',
+                      marginBottom: '30px',
+                      backgroundColor: '#F44E77',
+                      textAlign: 'center',
+
+                    }
+                  }}
+                >
+                  Contactanos
+                </Button>
+              </div>
+
+            </div>
+            <div className="landing-header-form col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+              <Card
+                variant='outlined'
                 sx={{
+                  width: '400px',
+                  height: formSubmited && (nombreCompletoValid || numeroCelularValid) ? '540px' : '490px',
                   borderRadius: '20px',
-                  backgroundColor: '#16194F',
-                  '&:hover': {
-                    backgroundColor: '#4D53C3'
+                  textAlign: 'center',
+                  '@media (max-width: 600px)': {
+                    width: '350px'
                   }
                 }}
               >
-                Contactanos
-              </Button>
-            </div>
-            <div className="landing-header-img col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-              <img src={ EjemploImg } alt="Ejemplo demo"/>
+                <h5>¡Contactanos!</h5>
+                <div className='header-form-text'>
+                  <p>Llena tus datos y pronto estaremos en contacto</p>
+                </div>
+                
+                <form onSubmit={ onSubmitMensaje }>
+                  <TextField
+                    label='Nombre completo'
+                    name='nombreCompleto'
+                    value={ nombreCompleto }
+                    onChange={ onInputChange }
+                    error={ !!nombreCompletoValid && formSubmited }
+                    helperText={ !!nombreCompletoValid && formSubmited ? nombreCompletoValid : '' }
+                    variant='outlined'
+                    required
+                    sx={{
+                      width: '345px',
+                      borderColor: '#554DDE',
+                      '@media (max-width: 768px)': {
+                        width: '297.5px'
+                      }
+                    }}
+                  />
+                  <TextField
+                    label='Número celular'
+                    name='numeroCelular'
+                    type='number'
+                    value={ numeroCelular }
+                    onChange={ onInputChange }
+                    error={ !!numeroCelularValid && formSubmited }
+                    helperText={ !!numeroCelularValid && formSubmited ? numeroCelularValid : '' }
+                    variant='outlined'
+                    required
+                    sx={inputStyle}
+                    onInput={({target}) => {
+                      target.value = target.value.slice(0, 9)
+                    }}
+                  />
+                  <TextField
+                    label="Mensaje"
+                    name='mensaje'
+                    value={ mensaje }
+                    onChange={ onInputChange }
+                    multiline
+                    rows={4}
+                    variant='outlined'
+                    sx={inputStyle}
+                    inputProps={{
+                      maxLength: 150
+                    }}
+                  />
+
+                  <Button
+                    variant='contained'
+                    sx={{
+                      marginTop: '15px',
+                      borderRadius: '20px',
+                      width: '345px',
+                      '@media (max-width: 768px)': {
+                        width: '297.5px'
+                      }
+                    }}
+                    type='submit'
+                  >
+                    Enviar
+                  </Button>
+                </form>
+                
+              </Card>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Button } from '@mui/material'
 
-export const VisitaBlog = () => {
+export const VisitaBlog = memo(() => {
   return (
     <section className="landing-section-10">
         <div className="row">
@@ -31,4 +31,4 @@ export const VisitaBlog = () => {
         </div> 
     </section>
   )
-}
+});

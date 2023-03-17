@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -7,7 +7,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 
-export const Footer = () => {
+export const Footer = memo(() => {
     return (
         <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
             <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
@@ -112,4 +112,4 @@ export const Footer = () => {
             </div>
         </MDBFooter>
     )
-}
+});

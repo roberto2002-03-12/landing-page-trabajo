@@ -2,7 +2,7 @@ import { memo } from 'react';
 import PuntoExample from '../img/punto.svg';
 import ArquitecturaImg from '../img/arquitectura.svg';
 
-export const Arquitectura = () => {
+export const Arquitectura = memo(() => {
   return (
     <section className="landing-section-6">
         <div className="row">
@@ -60,4 +60,4 @@ export const Arquitectura = () => {
         </div>
     </section>
   )
-}
+});

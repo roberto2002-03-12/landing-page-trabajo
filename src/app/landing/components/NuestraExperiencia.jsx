@@ -19,9 +19,11 @@ export const NuestraExperiencia = memo(() => {
               rowSpacing={ 2 }
               columnSpacing={{
                 xs: 1,
-              }} 
+              }}
+              justifyContent="center"
+              alignItems="center"
             >
-              <Grid item xs={6}>
+              <Grid item xs={12} xl={6} lg={6}>
                 <div className="section-2-note">
                   <img src={DiplomaEjemplo} alt="" />
                   <div className="section-2-note-text">
@@ -30,7 +32,7 @@ export const NuestraExperiencia = memo(() => {
                   </div>
                 </div>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} xl={6} lg={6}>
                 <div className="section-2-note">
                   <img src={DiplomaEjemplo} alt="" />
                   <div className="section-2-note-text">
@@ -39,7 +41,7 @@ export const NuestraExperiencia = memo(() => {
                   </div>
                 </div>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} xl={6} lg={6}>
                 <div className="section-2-note">
                   <img src={DiplomaEjemplo} alt="" />
                   <div className="section-2-note-text">
@@ -48,7 +50,7 @@ export const NuestraExperiencia = memo(() => {
                   </div>
                 </div>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} xl={6} lg={6}>
                 <div className="section-2-note">
                   <img src={DiplomaEjemplo} alt="" />
                   <div className="section-2-note-text">
