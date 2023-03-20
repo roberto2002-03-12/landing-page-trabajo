@@ -1,13 +1,429 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
+import { TextField, InputLabel, Select, MenuItem, createTheme, ThemeProvider, FormControl, Button } from '@mui/material' 
+import { useForm } from '../../hooks';
+import './styles/FormularioStyle.css';
+
+const theme = createTheme({
+    typography: {
+        fontSize: 11
+    }
+});
+
+const inputs = {
+    tipoPersona: '',
+    nombreCompleto: '',
+    razonSocial: '',
+    domicilio: '',
+    departamento: '',
+    distrito: '',
+    provincia: '',
+    docIdentidad: '',
+    nroDocumento: '',
+    telefono: '',
+    email: '',
+
+    //manifesto del consumidor
+    //documento
+    tipo: '',
+    bienContratado: '',
+    detalleDelProducto: '',
+    detalleDelReclamo: '',
+    autorizoActo: ''
+};
+
+const inputsValidacion = {
+    nombreCompleto: [(value) => value.length >= 8, 'Debe ser nombre completo'],
+    razonSocial: [(value) => value.length >= 4, 'Razon social no valida'],
+    domicilio: [(value) => value.length >= 8, 'Tiene que haber más detalle en la dirección'],
+    nroDocumento: [(value) => value.length >= 8, 'Nro documento no valido'],
+    telefono: [(value) => value.length >= 7, 'Número de celular no valido'],
+    email: [(value) => value.includes('@'), 'Email no valido'],
+
+    //manifesto del consumidor
+    detalleDelProducto: [(value) => value.length >= 20, 'Tiene que dar más detalle'],
+    detalleDelReclamo: [(value) => value.length >= 20, 'Tiene que dar más detalle'],
+}
 
 export const FormularioPage = () => {
+    const {  
+        tipoPersona,
+        nombreCompleto,
+        razonSocial,
+        domicilio,
+        departamento,
+        distrito,
+        provincia,
+        docIdentidad,
+        nroDocumento,
+        telefono,
+        email,
+        tipo,
+        bienContratado,
+        detalleDelProducto,
+        detalleDelReclamo,
+        autorizoActo,
+
+        nombreCompletoValid,
+        razonSocialValid,
+        domicilioValid,
+        nroDocumentoValid,
+        telefonoValid,
+        emailValid,
+        detalleDelProductoValid,
+        detalleDelReclamoValid,
+
+        onInputChange,
+        isFormValid,
+        formState,
+        onResetForm
+    } = useForm(inputs, inputsValidacion);
+
+    const [formSubmited, setFormSubmited] = useState(false);
+
+    const onSubmitReclamo = (event) => {
+        //prevenir que se refresque la página
+        event.preventDefault();
+
+        setFormSubmited(true);
+
+        if (!isFormValid) return;
+
+        //ToDo enviarForm
+        console.log(formState);
+    };
+
+    //cambiar documento
+    const [ selectedFile, setSelectedFile ] = useState([]);
+    
+    const handlePdfChange = (event) => {
+        setSelectedFile(event.target.files[0]);
+    }
+
     return (
-        <div className="container">
-            <nav class="navbar bg-body-dark">
-                <div class="container-fluid">
-                    <span class="navbar-brand mb-0 h1">Libro de reclamaciones</span>
+        <>
+            <nav className="navbar bg-body-dark">
+                <div className="container-fluid">
+                    <span className="navbar-brand mb-0 h1">Libro de reclamaciones</span>
                 </div>
             </nav>
-        </div>
+
+            <div className="container">
+                <form onSubmit={ onSubmitReclamo }>
+                    <div className="row datos-consumidor">
+                        <h5>IDENTIFICADOR DEL CONSUMIDOR RECLAMANTE</h5>
+                        <hr />
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div className="formulario-fields-1">
+                                <p>Persona natural o juridica</p>
+                                <p>Nombre y Apellido</p>
+                                <p>Razon social</p>
+                                <p>Domicilio</p>
+                                <p>Departamento</p>
+                                <p>Provincia</p>
+                                <p>Distrito</p>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div className="formulario-inputs-1">
+                                <FormControl variant="filled" sx={{ m: 1, width: 200 }} size="small">
+                                    <InputLabel required id="tipo-persona-input">Tipo de persona</InputLabel>
+                                    <Select
+                                        labelId="tipo-persona-input"
+                                        id="tipo-persona-input"
+                                        defaultValue={'Persona natural'}
+                                        name="tipoPersona"
+                                        value={ tipoPersona }
+                                        onChange={ onInputChange }
+                                    >
+                                        <MenuItem value={'Persona Natural'}>Persona Natural</MenuItem>
+                                        <MenuItem value={'Persona Juridica'}>Persona Juridica</MenuItem>
+                                    </Select>
+                                </FormControl>
+
+                                <TextField
+                                    required
+                                    label="Nombre y apellidos"
+                                    variant="filled"
+                                    size="small"
+                                    name="nombreCompleto"
+                                    value={ nombreCompleto }
+                                    onChange={ onInputChange }
+                                    error={ !!nombreCompletoValid && formSubmited }
+                                    helperText={ !!nombreCompletoValid && formSubmited ? nombreCompletoValid : '' }
+                                    sx={{
+                                        width: 200,
+                                        m: 1
+                                    }}
+                                />
+
+                                <TextField
+                                    required
+                                    label="Razón social"
+                                    variant="filled"
+                                    size="small"
+                                    name="razonSocial"
+                                    value={ razonSocial }
+                                    onChange={ onInputChange }
+                                    error={ !!razonSocialValid && formSubmited }
+                                    helperText={ !!razonSocialValid && formSubmited ? razonSocialValid : '' }
+                                    sx={{
+                                        width: 200,
+                                        m: 1
+                                    }}
+                                />
+
+                                <TextField
+                                    required
+                                    label="Domicilio"
+                                    variant="filled"
+                                    size="small"
+                                    name="domicilio"
+                                    value={ domicilio }
+                                    onChange={ onInputChange }
+                                    error={ !!domicilioValid && formSubmited }
+                                    helperText={ !!domicilioValid && formSubmited ? domicilioValid : '' }
+                                    sx={{
+                                        width: 200,
+                                        m: 1
+                                    }}
+                                />
+
+                                <FormControl variant="filled" sx={{ m: 1, width: 200 }} size="small">
+                                    <InputLabel required id="departamento-input">Departamento</InputLabel>
+                                    <Select
+                                        labelId="departamento-input"
+                                        id="departamento-input"
+                                        defaultValue={'Lima'}
+                                        name="departamento"
+                                        value={ departamento }
+                                        onChange={ onInputChange }
+                                    >
+                                        <MenuItem value={'Lima'}>Lima</MenuItem>
+                                        <MenuItem value={'Ancash'}>Ancash</MenuItem>
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl variant="filled" sx={{ m: 1, width: 200 }} size="small">
+                                    <InputLabel required id="provincia-input">Provincia</InputLabel>
+                                    <Select
+                                        labelId="provincia-input"
+                                        id="provincia-input"
+                                        defaultValue={'Lima'}
+                                        name="provincia"
+                                        value={ provincia }
+                                        onChange={ onInputChange }
+                                    >
+                                        <MenuItem value={'Lima'}>Lima</MenuItem>
+                                        <MenuItem value={'Trujillo'}>Trujillo</MenuItem>
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl variant="filled" sx={{ m: 1, width: 200 }} size="small">
+                                    <InputLabel required id="distrito-input">Distrito</InputLabel>
+                                    <Select
+                                        labelId="distrito-input"
+                                        id="distrito-input"
+                                        defaultValue={'Santiago de Surco'}
+                                        name="distrito"
+                                        value={ distrito }
+                                        onChange={ onInputChange }
+                                    >
+                                        <MenuItem value={'Santiago de Surco'}>Santiago de Surco</MenuItem>
+                                        <MenuItem value={'Peralta'}>Peralta</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div className="formulario-fields-2">
+                                <p>Doc. Identidad</p>
+                                <p>N. Documentos</p>
+                                <p>Télefono</p>
+                                <p>Email</p>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <div className="formulario-inputs-1">
+                                <FormControl variant="filled" sx={{ m: 1, width: 200 }} size="small">
+                                    <InputLabel required id="tipo-documento-input">Tipo documento</InputLabel>
+                                    <Select
+                                        labelId="tipo-documento-input"
+                                        id="tipo-documento-input"
+                                        defaultValue={'dni'}
+                                        name="docIdentidad"
+                                        value={ docIdentidad }
+                                        onChange={ onInputChange }
+                                    >
+                                        <MenuItem value={'dni'}>DNI</MenuItem>
+                                        <MenuItem value={'ruc'}>RUC</MenuItem>
+                                    </Select>
+                                </FormControl>
+
+                                <TextField
+                                    required
+                                    label="Número identidad"
+                                    variant="filled"
+                                    size="small"
+                                    name="nroDocumento"
+                                    value={ nroDocumento }
+                                    onChange={ onInputChange }
+                                    error={ !!nroDocumentoValid && formSubmited }
+                                    helperText={ !!nroDocumentoValid && formSubmited ? nroDocumentoValid : '' }
+                                    sx={{
+                                        width: 200,
+                                        m: 1
+                                    }}
+                                />
+
+                                <TextField
+                                    required
+                                    type='number'
+                                    label="Télefono"
+                                    variant="filled"
+                                    size="small"
+                                    name="telefono"
+                                    value={ telefono }
+                                    onChange={ onInputChange }
+                                    error={ !!telefonoValid && formSubmited }
+                                    helperText={ !!telefono && formSubmited ? telefono : '' }
+                                    sx={{
+                                        width: 200,
+                                        m: 1
+                                    }}
+                                />
+
+                                <TextField
+                                    required
+                                    label="Email"
+                                    variant="filled"
+                                    size="small"
+                                    name="email"
+                                    value={ email }
+                                    onChange={ onInputChange }
+                                    error={ !!emailValid && formSubmited }
+                                    helperText={ !!emailValid && formSubmited ? emailValid : '' }
+                                    sx={{
+                                        width: 200,
+                                        m: 1
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row manifiesto-consumidor mt-5">
+                        <h5>MANIFIESTO DEL CONSUMIDOR RECLAMANTE</h5>
+                        <hr />
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <p className='field-input-manifesto-consumidor'>Tipo</p>
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <FormControl variant="filled" sx={{ m: 1, width: 200 }} size="small">
+                                <InputLabel required id="tipo-input">Queja</InputLabel>
+                                <Select
+                                    labelId="tipo-input"
+                                    id="tipo-input"
+                                    defaultValue={'Queja'}
+                                    name="tipo"
+                                    value={ tipo }
+                                    onChange={ onInputChange }
+                                >
+                                    <MenuItem value={'Queja'}>Queja</MenuItem>
+                                    <MenuItem value={'Reclamo'}>Reclamo</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <p className='field-input-manifesto-consumidor'>Bien Contratado</p>
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <FormControl variant="filled" sx={{ m: 1, width: 200 }} size="small">
+                                <InputLabel required id="bien-contratado-input">Bien Contratado</InputLabel>
+                                <Select
+                                    labelId="bien-contratado-input"
+                                    id="bien-contratado-input"
+                                    defaultValue={'Producto'}
+                                    name="bienContratado"
+                                    value={ bienContratado }
+                                    onChange={ onInputChange }
+                                >
+                                    <MenuItem value={'Producto'}>Producto</MenuItem>
+                                    <MenuItem value={'Servicio'}>Servicio</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 mt-4">
+                            <p>Archivo PDF</p>
+                        </div>
+                        <div className="col-xl-9 col-lg-9 col-md-6 col-sm-6 col-6 mt-4">
+                            <input className="form-control form-control-sm" id="pdfInput" type="file"
+                                accept="application/pdf" onChange={ handlePdfChange }
+                            />
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <p>Detalle del producto o Servicio</p>
+                        </div>
+                        <div className="col-xl-9 col-lg-9 col-md-6 col-sm-6 col-6">
+                            <TextField
+                                required
+                                label="Detalle del producto"
+                                variant="outlined"
+                                size="small"
+                                name="detalleDelProducto"
+                                value={ detalleDelProducto }
+                                onChange={ onInputChange }
+                                error={ !!detalleDelProductoValid && formSubmited }
+                                helperText={ !!detalleDelProductoValid && formSubmited ? detalleDelProductoValid : '' }
+                                multiline
+                                rows={4}
+                                sx={{
+                                    width: 200,
+                                    m: 1
+                                }}
+                            />
+                        </div>
+                        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6">
+                            <p>Detalle del Reclamo o Queja</p>
+                        </div>
+                        <div className="col-xl-9 col-lg-9 col-md-6 col-sm-6 col-6">
+                            <TextField
+                                required
+                                label="Detalle del reclamo"
+                                variant="outlined"
+                                size="small"
+                                name="detalleDelReclamo"
+                                value={ detalleDelReclamo }
+                                onChange={ onInputChange }
+                                error={ !!detalleDelReclamoValid && formSubmited }
+                                helperText={ !!detalleDelReclamoValid && formSubmited ? detalleDelReclamoValid : '' }
+                                multiline
+                                rows={4}
+                                sx={{
+                                    width: 200,
+                                    m: 1
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <div className="buttons-formulario">
+                        <Button
+                            variant='outlined'
+                            size='medium'
+                            onClick={ onResetForm }
+                        >
+                            Cancelar
+                        </Button>
+                        <Button
+                            variant='contained'
+                            size='medium'
+                            onClick={ onSubmitReclamo }
+                            type='submit'
+                        >
+                            Enviar
+                        </Button>
+                    </div>
+                </form>
+            </div>
+        </>
     )
 }

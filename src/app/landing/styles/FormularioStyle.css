@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.formulario-fields-1 p {
+    padding-top: 23px;
+}
+
+.formulario-fields-2 p {
+    padding-top: 23px;
+}
+
+#pdfInput {
+    width: 200px;
+    margin-left: 5px;
+}
+
+.field-input-manifesto-consumidor {
+    padding-top: 21px;
+}
+
+.buttons-formulario {
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 50px;
+    width: 300px;
+    margin: 0 auto;
+}
