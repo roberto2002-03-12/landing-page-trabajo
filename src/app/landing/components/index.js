@@ -9,4 +9,5 @@ export * from './Beneficios';
 export * from './AgendarDemo';
 export * from './MetodosPagos';
 export * from './Footer';
-export * from './VisitaBlog'
+export * from './VisitaBlog';
+export * from './BotonSubirArriba';

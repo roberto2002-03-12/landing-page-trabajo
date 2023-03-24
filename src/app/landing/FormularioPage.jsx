@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react'
-import { TextField, InputLabel, Select, MenuItem, createTheme, ThemeProvider, FormControl, Button } from '@mui/material' 
+import { useState, useEffect } from 'react';
 import { useForm } from '../../hooks';
+import { TextField, InputLabel, Select, MenuItem, createTheme, ThemeProvider, FormControl, Button } from '@mui/material' 
+import { mostrarProvinciasPorDepartamento, mostrarDistritosPorProvincia } from './helpers';
+import { departamentos } from './data';
 import './styles/FormularioStyle.css';
 
 const theme = createTheme({
@@ -24,7 +26,7 @@ const inputs = {
 
     //manifesto del consumidor
     //documento
-    tipo: '',
+    tipoReclamo: '',
     bienContratado: '',
     detalleDelProducto: '',
     detalleDelReclamo: '',
@@ -57,7 +59,7 @@ export const FormularioPage = () => {
         nroDocumento,
         telefono,
         email,
-        tipo,
+        tipoReclamo,
         bienContratado,
         detalleDelProducto,
         detalleDelReclamo,
@@ -98,6 +100,22 @@ export const FormularioPage = () => {
     const handlePdfChange = (event) => {
         setSelectedFile(event.target.files[0]);
     }
+
+    //ubigeo
+    const [ubigeoListaProvincia, setubigeoListaProvincia] = useState([]);
+    const [ubigeoListaDistrito, setUbigeoListaDistrito] = useState([]);
+
+    useEffect(() => {
+        const departamentoData = departamento.split('-');
+        const provinciasFiltradas = mostrarProvinciasPorDepartamento(departamentoData[0]);
+        setubigeoListaProvincia(provinciasFiltradas);
+    }, [departamento]);
+
+    useEffect(() => {
+        const provinciaData = provincia.split('-');
+        const distritosFiltrados = mostrarDistritosPorProvincia(provinciaData[0]);
+        setUbigeoListaDistrito(distritosFiltrados);
+    }, [provincia]);
 
     return (
         <>
@@ -198,8 +216,13 @@ export const FormularioPage = () => {
                                         value={ departamento }
                                         onChange={ onInputChange }
                                     >
-                                        <MenuItem value={'Lima'}>Lima</MenuItem>
-                                        <MenuItem value={'Ancash'}>Ancash</MenuItem>
+                                        {
+                                            departamentos.map((dep) => (
+                                                <MenuItem key={dep.id} value={`${dep.id}-${dep.name}`}>
+                                                    {dep.name}
+                                                </MenuItem>
+                                            ))
+                                        }
                                     </Select>
                                 </FormControl>
 
@@ -208,13 +231,18 @@ export const FormularioPage = () => {
                                     <Select
                                         labelId="provincia-input"
                                         id="provincia-input"
-                                        defaultValue={'Lima'}
+                                        defaultValue={''}
                                         name="provincia"
                                         value={ provincia }
                                         onChange={ onInputChange }
                                     >
-                                        <MenuItem value={'Lima'}>Lima</MenuItem>
-                                        <MenuItem value={'Trujillo'}>Trujillo</MenuItem>
+                                        {                                     
+                                            ubigeoListaProvincia.map((prov) => (
+                                                <MenuItem key={prov.id} value={`${prov.id}-${prov.name}`}>
+                                                    {prov.name}
+                                                </MenuItem>
+                                            ))
+                                        }
                                     </Select>
                                 </FormControl>
 
@@ -228,8 +256,13 @@ export const FormularioPage = () => {
                                         value={ distrito }
                                         onChange={ onInputChange }
                                     >
-                                        <MenuItem value={'Santiago de Surco'}>Santiago de Surco</MenuItem>
-                                        <MenuItem value={'Peralta'}>Peralta</MenuItem>
+                                        {
+                                            ubigeoListaDistrito.map((distrito) => (
+                                                <MenuItem key={distrito.id} value={distrito.name}>
+                                                    {distrito.name}
+                                                </MenuItem>
+                                            ))
+                                        }
                                     </Select>
                                 </FormControl>
                             </div>
@@ -324,8 +357,8 @@ export const FormularioPage = () => {
                                     labelId="tipo-input"
                                     id="tipo-input"
                                     defaultValue={'Queja'}
-                                    name="tipo"
-                                    value={ tipo }
+                                    name="tipoReclamo"
+                                    value={ tipoReclamo }
                                     onChange={ onInputChange }
                                 >
                                     <MenuItem value={'Queja'}>Queja</MenuItem>

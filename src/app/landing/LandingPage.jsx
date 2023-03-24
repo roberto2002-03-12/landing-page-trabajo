@@ -4,8 +4,10 @@ import './styles/LandingStyle.css';
 import '@splidejs/react-splide/css';
 import { NavBar, QuienesSomos, NuestraExperiencia, NuestrosServicios, 
          NuestrosClientes, NuestrosPlanes, Arquitectura,
-         Beneficios, AgendarDemo, MetodosPagos, VisitaBlog, Footer } from './components'
+         Beneficios, AgendarDemo, MetodosPagos, VisitaBlog, Footer, BotonSubirArriba } from './components'
 import { Button, Card, TextField } from '@mui/material';
+import ReCAPTCHA from 'react-google-recaptcha';
+import Swal from 'sweetalert2';
 
 const inputStyle = {
   width: '345px',
@@ -43,11 +45,23 @@ export const LandingPage = () => {
     onResetForm
   } = useForm(formularioCampos, formularioCamposValidaciones);
 
+  //datos para recaptcha
+  const [captchaToken, setCaptchaToken] = useState('');
+
+  const onChangeCaptcha = (token) => {
+    setCaptchaToken(token);
+  }
+
   const [formSubmited, setFormSubmited] = useState(false);
 
   const onSubmitMensaje = (event) => {
     //prevenir que se refresque la página
     event.preventDefault();
+
+    //Validar captcha
+    if (!captchaToken) {
+      Swal.fire('Error al enviar mensaje', 'No has verificado que seas humano', 'error');
+    }
 
     setFormSubmited(true);
 
@@ -85,7 +99,8 @@ export const LandingPage = () => {
   return (
     <>
       <NavBar isScrolled={ isScrolled }/>
-      <header className='landing-header'>
+      <BotonSubirArriba />
+      <header className='landing-header' id='landing-header'>
         <div className="container landing-header-content">
           <div className="row">
             <div className="landing-header-title col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -128,7 +143,7 @@ export const LandingPage = () => {
                 variant='outlined'
                 sx={{
                   width: '400px',
-                  height: formSubmited && (nombreCompletoValid || numeroCelularValid) ? '540px' : '490px',
+                  height: formSubmited && (nombreCompletoValid || numeroCelularValid) ? '580px' : '530px',
                   borderRadius: '20px',
                   textAlign: 'center',
                   '@media (max-width: 600px)': {
@@ -180,7 +195,7 @@ export const LandingPage = () => {
                     value={ mensaje }
                     onChange={ onInputChange }
                     multiline
-                    rows={4}
+                    rows={2}
                     variant='outlined'
                     sx={inputStyle}
                     inputProps={{
@@ -188,6 +203,13 @@ export const LandingPage = () => {
                     }}
                   />
 
+                  <ReCAPTCHA
+                    sitekey={'key'}
+                    onChange={onChangeCaptcha}
+                    size='compact'
+                    style={{paddingTop: '14px', paddingLeft:'26px', height: '95px'}}
+                  />
+                  
                   <Button
                     variant='contained'
                     sx={{
