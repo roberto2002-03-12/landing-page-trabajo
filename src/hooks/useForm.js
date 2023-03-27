@@ -23,11 +23,18 @@ export const useForm = (initialForm = {}, formValidations = {})  => {
 
   //crear los inputs y permitir cambios
   const onInputChange = ({target}) => {
-    const { name, value } = target;
+    const { name, value, checked } = target;
     setFormState({
       ...formState,
       [name]: value
     });
+    //personalizado
+    if (name === 'autorizoActo') {
+      setFormState({
+        ...formState,
+        [name]: checked ? 1 : 0
+      });
+    };
   };
   //resetear formulario
   const onResetForm = () => {

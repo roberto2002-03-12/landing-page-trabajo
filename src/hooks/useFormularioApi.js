@@ -1,7 +1,15 @@
-import landingPageApi from '../../api/landingPage';
+import landingPageApi from '../api/landingPage';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { onSubmit, onError, clearErrorMessage, onChecking } from '../store';
 
 export const useFormularioApi = () => {
+    const { mensajeError, mensajeExito, estado } = useSelector(state => state.estado);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const subirFormularioReclamo = async (formulario, documento) => {
+        dispatch(onChecking());
         let newFormulario = {
             ...formulario
         };
@@ -14,8 +22,8 @@ export const useFormularioApi = () => {
             formData.append('tipoPersona', newFormulario.tipoPersona);
             formData.append('razonSocial', newFormulario.razonSocial);
             formData.append('domicilio', newFormulario.domicilio);
-            formData.append('departamento', departamento);
-            formData.append('provincia', provincia);
+            formData.append('departamento', departamento[1]);
+            formData.append('provincia', provincia[1]);
             formData.append('distrito', newFormulario.distrito);
             formData.append('docIdentidad', newFormulario.docIdentidad);
             formData.append('nroDocumento', newFormulario.nroDocumento);
@@ -34,9 +42,36 @@ export const useFormularioApi = () => {
                 }
             });
 
-            
+            dispatch(onSubmit('Formulario súbido exitosamente'));
+            navigate('/');
         } catch (err) {
-            console.error(err);
-        }
+            dispatch(onError('Error en subir el formulario, intente de nuevo'));
+            setTimeout(() => {
+                dispatch(clearErrorMessage());
+            }, 10);
+        };
     };
+
+    const subirMensaje = async (mensaje) => {
+        dispatch(onChecking());
+        try {
+            await landingPageApi.post('/mensajes', mensaje);
+            dispatch(onSubmit('Se ha enviado el mensaje'));
+        } catch (err) {
+            dispatch(onError('Hubo un error al enviar el mensaje'));
+            setTimeout(() => {
+                dispatch(clearErrorMessage());
+            }, 10);
+        };
+    };
+
+    return {
+        //mensajes
+        estado,
+        mensajeError,
+        mensajeExito,
+        //metodos
+        subirFormularioReclamo,
+        subirMensaje
+    }
 };
