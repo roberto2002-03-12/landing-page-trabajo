@@ -6,6 +6,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import HomeIcon from '@mui/icons-material/Home';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
+import { Link } from 'react-router-dom';
 
 export const Footer = memo(() => {
     return (
@@ -45,9 +46,9 @@ export const Footer = memo(() => {
                 <MDBCol md='2' lg='2' xl='2' className='mx-auto mb-4'>
                     <h6 className='text-uppercase fw-bold mb-4'>Otros</h6>
                     <p>
-                    <a href='#!' className='text-reset'>
+                    <Link to={'/reclamacion'} className='text-reset'>
                         Formulario de quejas
-                    </a>
+                    </Link>
                     </p>
                     <p>
                     <a href='#!' className='text-reset'>

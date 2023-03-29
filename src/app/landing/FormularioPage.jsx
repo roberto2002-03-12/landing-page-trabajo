@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm, useFormularioApi } from '../../hooks';
+import { useNavigate } from 'react-router-dom';
 import { mostrarProvinciasPorDepartamento, mostrarDistritosPorProvincia } from './helpers';
 import { departamentos } from './data';
 import { TextField, InputLabel, Select, 
@@ -50,6 +51,7 @@ const inputsValidacion = {
 }
 
 export const FormularioPage = () => {
+    const navigate = useNavigate();
     const { subirFormularioReclamo, mensajeError, mensajeExito, estado } = useFormularioApi();
 
     useEffect(() => {
@@ -134,6 +136,13 @@ export const FormularioPage = () => {
         const distritosFiltrados = mostrarDistritosPorProvincia(provinciaData[0]);
         setUbigeoListaDistrito(distritosFiltrados);
     }, [provincia]);
+
+    //mandar a inicio
+    const onCancelForm = () => {
+        onResetForm();
+
+        navigate('/');
+    };
 
     return (
         <>
@@ -482,7 +491,7 @@ export const FormularioPage = () => {
                             <Button
                                 variant='outlined'
                                 size='medium'
-                                onClick={ onResetForm }
+                                onClick={ onCancelForm }
                             >
                                 Cancelar
                             </Button>

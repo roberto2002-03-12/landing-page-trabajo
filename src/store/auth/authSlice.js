@@ -3,10 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        estadoAuth: 'checking', //authenticated, not-authenticated
+        estadoAuth: 'not-authenticated', //authenticated, not-authenticated, //checking
+        estadoEmail: '', //'enviado' 'no-enviado'
         user: {},
         mensajeErrorAuth: undefined,
-        mensajeExitoAuth: undefined
+        mensajeExitoAuth: undefined,
+        mensajeErrorEmail: undefined,
+        mensajeExitoEmail: undefined
     },
     reducers: {
         onCheckingAuth: (state) => {
@@ -33,6 +36,23 @@ export const authSlice = createSlice({
             state.user = {};
             state.mensajeErrorAuth = undefined;
             state.mensajeExitoAuth = payload;
+        },
+        onSubmitEmail: (state, {payload}) => {
+            state.estadoEmail = 'enviado';
+            state.mensajeExitoEmail = payload
+        },
+        onCheckingEmail: (state) => {
+            state.estadoEmail = 'revisando';
+            state.mensajeErrorEmail = undefined;
+            state.mensajeExitoEmail = undefined;
+        },
+        onErrorEmail: (state, {payload}) => {
+            state.mensajeExitoEmail = undefined;
+            state.estadoEmail = 'no-enviado';
+            state.mensajeErrorEmail = payload;
+        },
+        clearErrorMessageEmail: (state) => {
+            state.mensajeErrorEmail = undefined;
         }
     }
 });
@@ -42,5 +62,9 @@ export const {
     onLoggin,
     onLogout,
     clearErrorMessageAuth,
-    onRegister
+    onRegister,
+    onSubmitEmail,
+    onCheckingEmail,
+    onErrorEmail,
+    clearErrorMessageEmail
 } = authSlice.actions;
