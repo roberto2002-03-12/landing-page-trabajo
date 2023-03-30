@@ -6,7 +6,7 @@ export const mensajeSlice = createSlice({
         isLoadingMessage: true,
         messages: [],
         paginas: 1,
-        message: {}
+        message: undefined
     },
     reducers: {
         onLoadMessages: (state, { payload }) => {
@@ -19,6 +19,9 @@ export const mensajeSlice = createSlice({
         },
         onSetActiveMessage: (state, { payload }) => {
             state.message = payload;
+        },
+        onDeleteActiveMessage: (state) => {
+            state.message = undefined;
         }
     }
 });
@@ -26,5 +29,6 @@ export const mensajeSlice = createSlice({
 export const {
     onLoadMessages,
     onChangePagesMessage,
-    onSetActiveMessage
+    onSetActiveMessage,
+    onDeleteActiveMessage
 } = mensajeSlice.actions;

@@ -2,12 +2,12 @@ import landingPageApi from "../api/landingPage";
 import { useNavigate } from 'react-router-dom';
 import { useAuthApi } from '.';
 import { useSelector, useDispatch } from 'react-redux';
-import { onLoadMessages, onChangePagesMessage } from '../store';
+import { onLoadMessages, onSetActiveMessage, onDeleteActiveMessage } from '../store';
 import Swal from 'sweetalert2';
 
 export const useMessageApi = () => {
     const { salirSesion } = useAuthApi();
-    const { isLoadingMessage, messages } = useSelector(state => state.mensaje);
+    const { isLoadingMessage, messages, message } = useSelector(state => state.mensaje);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -44,8 +44,21 @@ export const useMessageApi = () => {
         }
     };
 
+    const activarMensaje = (mensaje) => {
+        dispatch(onSetActiveMessage(mensaje));
+    };
+
+    const desactivarMensaje = () => {
+        dispatch(onDeleteActiveMessage());
+    } 
+
     return {
+        //propiedades
+        messages,
+        message,
+        //metodos
         listarMensajes,
-        messages
+        activarMensaje,
+        desactivarMensaje
     };
 };

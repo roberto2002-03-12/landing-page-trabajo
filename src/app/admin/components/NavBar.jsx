@@ -1,33 +1,8 @@
-import React from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/NavBarStyle.css';
 
-export const NavBar = () => {
-    /*
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <div className="navbar-brand">Admin Gestion</div>
-  
-          <div className="d-flex flex-fill justify-content-center">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to="/admin/lista-mensajes">Lista de mensajes</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/admin/lista-reclamos">Lista de reclamos</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/admin/lista-blogs">Lista de blogs</Link>
-              </li>
-            </ul>
-          </div>
-  
-          <div>
-            <button className="btn btn-light" type="submit">Cerrar sesión</button>
-          </div>
-        </div>
-      </nav>
-    */
+export const NavBar = memo(() => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -54,4 +29,4 @@ export const NavBar = () => {
             </div>
         </nav>
     )
-};
+});

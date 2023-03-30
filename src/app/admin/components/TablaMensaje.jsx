@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, memo } from 'react';
 import { useMessageApi } from '../../../hooks';
 import { Modal, Box, Typography } from '@mui/material';
+import { ListaMensaje } from './';
 
 const style = {
     position: 'absolute',
@@ -14,10 +15,11 @@ const style = {
     p: 4,
 };
 
-export const TablaMensaje = () => {
+export const TablaMensaje = memo(() => {
+    console.log('deberia renderizarme una vez')
     const { listarMensajes, messages } = useMessageApi();
 
-    useEffect(() => {
+    useMemo(() => {
         listarMensajes();
     }, []);
     
@@ -38,27 +40,13 @@ export const TablaMensaje = () => {
             </thead>
             <tbody>
             {
-                messages.map((message) => (
-                    <tr key={message.idmensaje}>
-                    <td>{ message.idmensaje }</td>
-                    <td>{ message.nombreCompleto }</td>
-                    <td>{ message.numeroCelular }</td>
-                    <td>{ message.createdAt }</td>
-                    <td>
-                        <div className="dropdown">
-                        <button className="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Acciones
-                        </button>
-                        <ul className="dropdown-menu">
-                            <li>
-                            <a className="dropdown-item link-dropdown" onClick={ openModal }>Ver mensaje</a>
-                            </li>
-                            <li>
-                            <a className="dropdown-item link-dropdown" href={`https://wa.me/${message.numeroCelular}`} target="_blank">Enviar mensaje</a>
-                            </li>
-                        </ul>
-                        </div>
-                        <Modal
+                messages.map((msg) => (
+                    <ListaMensaje props={ msg } key={msg.idmensaje}/>
+                ))
+            }
+            {
+                /*
+                                        <Modal
                             keepMounted
                             open={ modalState }
                             onClose={ closeModal }
@@ -74,11 +62,9 @@ export const TablaMensaje = () => {
                                 </Typography>
                             </Box>
                         </Modal>
-                    </td>
-                    </tr>
-                ))
+                */
             }
             </tbody>
         </table>
     )
-}
+});
