@@ -1,0 +1,16 @@
+.link-dropdown {
+    cursor: pointer;
+}
+
+.filtros-mensajes {
+    margin: 0 auto;
+    height: 100px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lista-mensajes-filtros-h5 {
+    padding-top: 50px;
+}

@@ -6,6 +6,7 @@ import { Box, CircularProgress } from '@mui/material';
 import { useAuthApi } from '../hooks';
 
 export const AppRouter = () => {
+    const stateAuth = localStorage.getItem('stateAuth') || 'not-authenticated';
     const { estadoAuth } = useAuthApi();
 
     if (estadoAuth === 'checking') {
@@ -19,7 +20,7 @@ export const AppRouter = () => {
     return (
         <Routes>
             {
-                (estadoAuth === 'not-authenticated' ? (
+                (estadoAuth === 'not-authenticated' && stateAuth === 'not-authenticated' ? (
                     <>
                         <Route path='/recuperacion' element={ <RecuperarContrasena /> } />
                         <Route path='/login' element={ <LoginRegisterPage /> }/>

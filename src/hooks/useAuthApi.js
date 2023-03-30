@@ -2,7 +2,7 @@ import landingPageApi from '../api/landingPage';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { clearErrorMessageAuth, onCheckingAuth, 
-         onLoggin, onRegister, onLogout,
+         onLoggin, onRegister, onLogout, onLogoutUser,
         
          onSubmitEmail, onCheckingEmail, onErrorEmail, clearErrorMessageEmail} from '../store'
 import Swal from 'sweetalert2';
@@ -24,6 +24,7 @@ export const useAuthApi = () => {
         delete newFormulario.passwordLog;
         try {
             const { data } = await landingPageApi.post('/auth/login', newFormulario);
+            localStorage.setItem('stateAuth', 'authenticated');
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(onLoggin(data.user));
@@ -84,6 +85,15 @@ export const useAuthApi = () => {
         };
     };
 
+    const salirSesion = () => {
+        dispatch(onCheckingAuth())
+        localStorage.removeItem('stateAuth');
+        localStorage.removeItem('token');
+        localStorage.removeItem('token-init-date');
+        dispatch(onLogoutUser());
+        navigate('/login');
+    };
+
     return {
         //mensajes y datos
         mensajeErrorAuth,
@@ -100,6 +110,7 @@ export const useAuthApi = () => {
         loguearse,
         registrarse,
         enviarEmail,
-        recuperacionCuenta
+        recuperacionCuenta,
+        salirSesion
     };
 };

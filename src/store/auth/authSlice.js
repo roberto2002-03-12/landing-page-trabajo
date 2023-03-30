@@ -28,6 +28,12 @@ export const authSlice = createSlice({
             state.mensajeExitoAuth = undefined;
             state.mensajeErrorAuth = payload;
         },
+        onLogoutUser: (state) => {
+            state.estadoAuth = 'not-authenticated';
+            state.user = {};
+            state.mensajeErrorAuth = undefined;
+            state.mensajeExitoAuth = undefined;
+        },
         clearErrorMessageAuth: (state) => {
             state.mensajeErrorAuth = undefined;
         },
@@ -61,6 +67,7 @@ export const {
     onCheckingAuth,
     onLoggin,
     onLogout,
+    onLogoutUser,
     clearErrorMessageAuth,
     onRegister,
     onSubmitEmail,
