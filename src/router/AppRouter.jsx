@@ -36,6 +36,8 @@ export const AppRouter = () => {
                     </>
                 ))
             }
+            <Route path='/*' element={ <LandingPage /> } />
+            <Route path='/login' element={ <LoginRegisterPage /> } />
         </Routes>
     );
 };

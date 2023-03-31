@@ -1,33 +1,24 @@
 import { useEffect, useState, useMemo, memo } from 'react';
 import { useMessageApi } from '../../../hooks';
-import { Modal, Box, Typography } from '@mui/material';
-import { ListaMensaje } from './';
+import { FilaMensaje, ModalMensaje } from './';
+import { Cargando } from '../../components'
+import ReactPaginate from 'react-paginate';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
 
 export const TablaMensaje = memo(() => {
-    console.log('deberia renderizarme una vez')
-    const { listarMensajes, messages } = useMessageApi();
+    const [currentPage, setCurrentPage] = useState(0);
+    const { listarMensajes, messages, paginas, isLoadingMessage } = useMessageApi();
 
+    const cambiarPagina = (selectedPage) => {
+        setCurrentPage(selectedPage.selected)
+    }
+    //que solo mande a solicitar datos cuando la página cambie
     useMemo(() => {
-        listarMensajes();
-    }, []);
-    
-    const [modalState, setModalState] = useState(false);
-    const openModal = () => setModalState(true);
-    const closeModal = () => setModalState(false);
+        listarMensajes(currentPage * 20);
+    }, [currentPage]);
 
     return (
+        <>
         <table className="table table-striped">
             <thead>
                 <tr>
@@ -40,31 +31,35 @@ export const TablaMensaje = memo(() => {
             </thead>
             <tbody>
             {
-                messages.map((msg) => (
-                    <ListaMensaje props={ msg } key={msg.idmensaje}/>
+                (isLoadingMessage === true ? (
+                    <Cargando />
+                ) 
+                : (
+                    messages.map((msg) => (
+                        <FilaMensaje props={ msg } key={msg.idmensaje}/>
+                    ))
                 ))
-            }
-            {
-                /*
-                                        <Modal
-                            keepMounted
-                            open={ modalState }
-                            onClose={ closeModal }
-                            aria-labelledby="keep-mounted-modal-title"
-                            aria-describedby="keep-mounted-modal-description"
-                        >
-                            <Box sx={ style }>
-                                <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
-                                    Mensaje de {message.nombreCompleto}
-                                </Typography>
-                                <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-                                    { message.mensaje }
-                                </Typography>
-                            </Box>
-                        </Modal>
-                */
             }
             </tbody>
         </table>
+        <ModalMensaje />
+        <ReactPaginate
+            pageCount={ paginas }
+            onPageChange={cambiarPagina}
+            containerClassName={'pagination'}
+            activeClassName={'active'}
+            breakLabel='...'
+            nextLabel='>'
+            previousLabel='<'
+            pageRangeDisplayed={5}
+            renderOnZeroPageCount={null}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            nextClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextLinkClassName={"page-link"}
+        />
+        </>
     )
 });

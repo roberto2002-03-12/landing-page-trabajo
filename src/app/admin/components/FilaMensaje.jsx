@@ -1,11 +1,12 @@
+import { memo } from 'react';
 import { useMessageApi } from '../../../hooks';
 
-export const ListaMensaje = ({props}) => {
+export const FilaMensaje = memo(({props}) => {
     const { activarMensaje } = useMessageApi();
 
     const onActivarMensaje = () => {
         activarMensaje(props);
-    }
+    };
 
     return (
         <tr>
@@ -30,4 +31,4 @@ export const ListaMensaje = ({props}) => {
             </td>
         </tr>
     )
-}
+});

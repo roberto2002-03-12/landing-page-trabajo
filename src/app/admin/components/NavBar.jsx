@@ -1,8 +1,11 @@
 import { memo } from 'react';
+import { useAuthApi } from '../../../hooks'
 import { Link } from 'react-router-dom';
 import '../styles/NavBarStyle.css';
 
 export const NavBar = memo(() => {
+    const { salirSesion } = useAuthApi();
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -23,7 +26,7 @@ export const NavBar = memo(() => {
                         </li>
                     </ul>
                     <div className='d-flex'>
-                        <button className="btn btn-light" type="submit">Cerrar sesión</button>
+                        <button className="btn btn-light" type="submit" onClick={() => salirSesion()}>Cerrar sesión</button>
                     </div>
                 </div>
             </div>
