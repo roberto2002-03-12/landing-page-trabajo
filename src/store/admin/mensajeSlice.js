@@ -6,7 +6,9 @@ export const mensajeSlice = createSlice({
         isLoadingMessage: true,
         messages: [],
         paginas: 1,
-        message: undefined
+        message: undefined,
+        nombre_completo: '',
+        fecha_creada: ''
     },
     reducers: {
         onLoadMessages: (state, { payload }) => {
@@ -22,6 +24,14 @@ export const mensajeSlice = createSlice({
         },
         onDeleteActiveMessage: (state) => {
             state.message = undefined;
+        },
+        onResetFiltersMessage: (state) => {
+            state.nombre_completo = '';
+            state.fecha_creada = '';
+        },
+        onSetFiltersMessage: (state, { payload }) => {
+            state.nombre_completo = payload.nombre_completo || '';
+            state.fecha_creada = payload.fecha_creada || '';
         }
     }
 });
@@ -30,5 +40,7 @@ export const {
     onLoadMessages,
     onChangePagesMessage,
     onSetActiveMessage,
-    onDeleteActiveMessage
+    onDeleteActiveMessage,
+    onResetFiltersMessage,
+    onSetFiltersMessage
 } = mensajeSlice.actions;

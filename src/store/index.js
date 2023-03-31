@@ -1,3 +1,4 @@
+export * from './admin/reclamoSlice';
 export * from './admin/mensajeSlice';
 export * from './estado/estadoSlice';
 export * from './auth/authSlice';

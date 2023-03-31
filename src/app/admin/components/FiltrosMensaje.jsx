@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm, useMessageApi } from '../../../hooks';
 import { TextField, Button } from '@mui/material';
 
@@ -8,11 +7,14 @@ const inputs = {
 };
 
 export const FiltrosMensaje = () => {
+    const { establecerFiltros, borrarFiltros } = useMessageApi();
+
     const {
         nombre_completo,
         fecha_creada,
         onInputChange,
-        formState
+        formState,
+        onResetForm
     } = useForm(inputs);
 
     const onSearchMessages = (event) => {
@@ -20,7 +22,7 @@ export const FiltrosMensaje = () => {
     
         if (!nombre_completo && !fecha_creada) return;
     
-        console.log(formState);
+        establecerFiltros(formState);
     };
 
     return (
@@ -65,6 +67,16 @@ export const FiltrosMensaje = () => {
                         }}
                     >
                         Buscar
+                    </Button>
+                    <Button
+                        variant='outlined'
+                        size='large'
+                        onClick={() => {
+                            borrarFiltros()
+                            onResetForm()
+                        }}
+                    >
+                        Restablecer
                     </Button>
                 </form>
             </div>

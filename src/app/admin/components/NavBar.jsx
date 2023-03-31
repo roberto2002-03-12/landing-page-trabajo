@@ -16,13 +16,13 @@ export const NavBar = memo(() => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mx-auto">
                         <li className="nav-item">
-                            <Link className="nav-link">Lista de mensajes</Link>
+                            <Link to='/admin/lista-mensajes' className="nav-link">Lista de mensajes</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link">Lista de reclamos</Link>
+                            <Link to='/admin/lista-reclamos' className="nav-link">Lista de reclamos</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link">Blogs publicados</Link>
+                            <Link to='/admin/lista-blogs' className="nav-link">Blogs publicados</Link>
                         </li>
                     </ul>
                     <div className='d-flex'>

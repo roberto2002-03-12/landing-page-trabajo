@@ -1,13 +1,12 @@
-import { useEffect, useState, useMemo, memo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import { useMessageApi } from '../../../hooks';
 import { FilaMensaje, ModalMensaje } from './';
 import { Cargando } from '../../components'
 import ReactPaginate from 'react-paginate';
 
-
 export const TablaMensaje = memo(() => {
     const [currentPage, setCurrentPage] = useState(0);
-    const { listarMensajes, messages, paginas, isLoadingMessage } = useMessageApi();
+    const { listarMensajes, messages, paginas, isLoadingMessage, fecha_creada, nombre_completo } = useMessageApi();
 
     const cambiarPagina = (selectedPage) => {
         setCurrentPage(selectedPage.selected)
@@ -15,33 +14,34 @@ export const TablaMensaje = memo(() => {
     //que solo mande a solicitar datos cuando la página cambie
     useMemo(() => {
         listarMensajes(currentPage * 20);
-    }, [currentPage]);
+    }, [currentPage, fecha_creada, nombre_completo]);
 
     return (
         <>
-        <table className="table table-striped">
-            <thead>
-                <tr>
-                <th scope='col'>ID</th>
-                <th scope='col'>Nombre cliente</th>
-                <th scope='col'>Nro Celular</th>
-                <th scope='col'>Fecha registro</th>
-                <th scope='col'>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-            {
-                (isLoadingMessage === true ? (
-                    <Cargando />
-                ) 
-                : (
-                    messages.map((msg) => (
-                        <FilaMensaje props={ msg } key={msg.idmensaje}/>
-                    ))
-                ))
-            }
-            </tbody>
-        </table>
+        {
+            (isLoadingMessage === true ? (
+                <Cargando />
+            ) : (
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope='col'>ID</th>
+                        <th scope='col'>Nombre cliente</th>
+                        <th scope='col'>Nro Celular</th>
+                        <th scope='col'>Fecha registro</th>
+                        <th scope='col'>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        messages.map((msg) => (
+                            <FilaMensaje props={ msg } key={msg.idmensaje}/>
+                        ))
+                    }
+                    </tbody>
+                </table>
+            ))
+        }
         <ModalMensaje />
         <ReactPaginate
             pageCount={ paginas }

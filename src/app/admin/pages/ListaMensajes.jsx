@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { NavBar, TablaMensaje, FiltrosMensaje } from '../components';
 import '../styles/ListaMensajesStyle.css'
 

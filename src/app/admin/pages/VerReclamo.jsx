@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const VerFormulario = () => {
+export const VerReclamo = () => {
   return (
     <div>VerFormulario</div>
   )
