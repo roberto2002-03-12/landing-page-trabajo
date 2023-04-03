@@ -13,25 +13,6 @@ export const useMessageApi = () => {
 
     const listarMensajes = async (offset) => {
         try {
-            /*
-            if (nombre_completo == '' && fecha_creada == '') {
-                const { data } = await landingPageApi.get(`/mensajes?offset=${offset}`);
-                dispatch(onLoadMessages(data.mensajes));
-                dispatch(onChangePagesMessage(data.cantidad));
-            } else if (nombre_completo !== '' && fecha_creada == '') {
-                const { data } = await landingPageApi.get(`/mensajes?offset=${offset}&nombre_completo=${nombre_completo}`);
-                dispatch(onLoadMessages(data.mensajes));
-                dispatch(onChangePagesMessage(data.cantidad));
-            } else if (nombre_completo == '' && fecha_creada !== '') {
-                const { data } = await landingPageApi.get(`/mensajes?offset=${offset}&fecha_creada=${fecha_creada}`);
-                dispatch(onLoadMessages(data.mensajes));
-                dispatch(onChangePagesMessage(data.cantidad));
-            } else if (nombre_completo !== '' && fecha_creada !== '') {
-                const { data } = await landingPageApi.get(`/mensajes?offset=${offset}&nombre_completo=${nombre_completo}&fecha_creada=${fecha_creada}`);
-                dispatch(onLoadMessages(data.mensajes));
-                dispatch(onChangePagesMessage(data.cantidad));
-            }
-            */
             const url = `/mensajes?offset=${offset}` + (nombre_completo !== '' ? `&nombre_completo=${nombre_completo}` : '') + (fecha_creada !== '' ? `&fecha_creada=${fecha_creada}` : '')
             const { data } = await landingPageApi.get(url);
             dispatch(onLoadMessages(data.mensajes));

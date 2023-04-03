@@ -1,0 +1,16 @@
+.filtros-reclamos {
+    padding-top: 30px;
+}
+
+.filtros-reclamos-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filtros-reclamos-botones {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

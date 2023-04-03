@@ -15,11 +15,14 @@ const style = {
 };
 
 export const ModalMensaje = memo(() => {
-  const { message } = useMessageApi();
+  const { message, desactivarMensaje } = useMessageApi();
 
   const [modalState, setModalState] = useState(false);
   const openModal = () => setModalState(true);
-  const closeModal = () => setModalState(false);
+  const closeModal = () => {
+    desactivarMensaje();
+    setModalState(false);
+  };
 
   useEffect(() => {
     if (message !== undefined) openModal();

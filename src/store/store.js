@@ -5,7 +5,8 @@ export const store = configureStore({
     reducer: {
         estado: estadoSlice.reducer,
         auth: authSlice.reducer,
-        mensaje: mensajeSlice.reducer
+        mensaje: mensajeSlice.reducer,
+        reclamo: reclamoSlice.reducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false

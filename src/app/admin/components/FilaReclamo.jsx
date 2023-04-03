@@ -1,15 +1,22 @@
-import React from 'react'
+import { memo } from 'react';
+import { useReclamoApi } from '../../../hooks'
 
-export const FilaReclamo = () => {
+export const FilaReclamo = memo(({props}) => {
+  const { seleccionarReclamo } = useReclamoApi()
+
+  const seleccionarReclamoBtn = () => {
+    seleccionarReclamo(props);
+  }
+
   return (
     <tr>
-      <td>1</td>
-      <td>Emilio Roberto Fabriciano Contreras Gonzales</td>
-      <td>Juridico</td>
-      <td>Queja</td>
-      <td>Servicio</td>
-      <td>965368241</td>
-      <td>2023-03-21T16:05:20.000Z</td>
+      <td>{props.idformulario}</td>
+      <td>{props.nombreCompleto}</td>
+      <td>{props.tipoPersona}</td>
+      <td>{props.tipoReclamo}</td>
+      <td>{props.bienContratado}</td>
+      <td>{props.telefono}</td>
+      <td>{props.createdAt}</td>
       <td>
         <div className="dropdown">
           <button className="btn btn-outline-primary btn-sm dropdown-toggle" type='button' data-bs-toggle="dropdown" aria-expanded="false">
@@ -17,14 +24,14 @@ export const FilaReclamo = () => {
           </button>
           <ul className='dropdown-menu'>
             <li>
-              <a href="" className="dropdown-item link-dropdown">Ver reclamo</a>
+              <a className="dropdown-item link-dropdown" onClick={ seleccionarReclamoBtn }>Ver reclamo</a>
             </li>
             <li>
-              <a href="" className="dropdown-item link-dropdown">Enviar mensaje</a>
+              <a className="dropdown-item link-dropdown" href={`https://wa.me/51${props.telefono}`} target='_blank'>Enviar mensaje</a>
             </li>
           </ul>
         </div>
       </td>
     </tr>
   )
-}
+});
