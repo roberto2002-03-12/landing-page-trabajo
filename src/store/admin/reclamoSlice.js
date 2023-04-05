@@ -6,7 +6,7 @@ export const reclamoSlice = createSlice({
         isLoadingClaim: true,
         claims: [],
         paginas: 1,
-        claim: undefined,
+        claim: null,
         nombre_completo: '',
         fecha_creada: '',
         tipo_persona: '',
@@ -23,7 +23,12 @@ export const reclamoSlice = createSlice({
             state.paginas = paginasDisponibles; 
         },
         onSetActiveClaim: (state, {payload}) => {
+            state.isLoadingClaim = true;
             state.claim = payload;
+            state.isLoadingClaim = false;
+        },
+        onSetNullClaim: (state) => {
+            state.claim = null;
         },
         onResetFiltersClaims: (state) => {
             state.nombre_completo = '';
@@ -47,5 +52,6 @@ export const {
     onChangePagesClaims,
     onSetActiveClaim,
     onResetFiltersClaims,
-    onSetFiltersClaims
+    onSetFiltersClaims,
+    onSetNullClaim
 } = reclamoSlice.actions;

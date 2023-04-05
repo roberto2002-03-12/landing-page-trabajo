@@ -1,11 +1,15 @@
 import { memo } from 'react';
-import { useReclamoApi } from '../../../hooks'
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { onSetActiveClaim } from '../../../store';
 
 export const FilaReclamo = memo(({props}) => {
-  const { seleccionarReclamo } = useReclamoApi()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const seleccionarReclamoBtn = () => {
-    seleccionarReclamo(props);
+    dispatch(onSetActiveClaim(props));
+    navigate(`/admin/reclamo/${ props.idformulario }`);
   }
 
   return (
@@ -27,7 +31,7 @@ export const FilaReclamo = memo(({props}) => {
               <a className="dropdown-item link-dropdown" onClick={ seleccionarReclamoBtn }>Ver reclamo</a>
             </li>
             <li>
-              <a className="dropdown-item link-dropdown" href={`https://wa.me/51${props.telefono}`} target='_blank'>Enviar mensaje</a>
+              <Link className="dropdown-item link-dropdown" href={`https://wa.me/51${props.telefono}`} target='_blank'>Enviar mensaje</Link>
             </li>
           </ul>
         </div>

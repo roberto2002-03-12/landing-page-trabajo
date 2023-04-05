@@ -1,7 +1,8 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { LoginRegisterPage, RecuperarContrasena } from '../auth/pages/';
 import { LandingPage, FormularioPage } from '../app/landing/';
-import { CrearBlog, EditarBlog, ListaBlogs, ListaReclamos, ListaMensajes, VerReclamo } from '../app/admin/pages';
+import { ListaBlogs, ListaReclamos, ListaMensajes, VerReclamo } from '../app/admin/pages';
+import { BlogPestana, BlogSeccion } from '../app/blog/pages';
 import { Box, CircularProgress } from '@mui/material';
 import { useAuthApi } from '../hooks';
 
@@ -27,6 +28,8 @@ export const AppRouter = () => {
                         <Route path='/' element={ <LandingPage/> } />
                         <Route path='/*' element={ <LandingPage/> } />
                         <Route path='/reclamacion' element={ <FormularioPage /> } />
+                        <Route path='/blog' element={ <BlogSeccion/> } />
+                        <Route path='/blog/:id' element={ <BlogPestana/> }/>
                     </>
                 ) : (
                     <>
@@ -39,6 +42,8 @@ export const AppRouter = () => {
             }
             <Route path='/*' element={ <LandingPage /> } />
             <Route path='/login' element={ <LoginRegisterPage /> } />
+            <Route path='/blog' element={ <BlogSeccion/> } />
+            <Route path='/blog/:id' element={ <BlogPestana/> }/>
         </Routes>
     );
 };

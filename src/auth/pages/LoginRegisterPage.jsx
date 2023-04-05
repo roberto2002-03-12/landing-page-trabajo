@@ -5,6 +5,7 @@ import { TextField, Button } from '@mui/material';
 import { MDBTabs, MDBTabsItem, MDBTabsLink, 
          MDBTabsContent, MDBTabsPane } from 'mdb-react-ui-kit';
 import '../styles/authStyle.css';
+import { Link } from 'react-router-dom';
 
 //inputs
 const inputsRegister = {
@@ -179,7 +180,7 @@ export const LoginRegisterPage = () => {
                         />
 
                         <div className="d-flex justify-content-between mx-4 mb-4">
-                            <a href="!#">¿Te olvidaste la contraseña?</a>
+                            <Link to='/recuperacion'>¿Te olvidaste la contraseña?</Link>
                         </div>
                         <Button
                             variant='contained'
