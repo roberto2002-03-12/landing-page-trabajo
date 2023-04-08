@@ -1,0 +1,17 @@
+.blog-header {
+    height: 350px;
+    width: 100%;
+    background-image: url('../../landing/img/BG.svg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-header-title {
+    color: white;
+}
+
+.blog-header-text {
+    color: white
+};
