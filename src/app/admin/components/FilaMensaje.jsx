@@ -11,7 +11,7 @@ export const FilaMensaje = memo(({props}) => {
     return (
         <tr>
             <td>{ props.idmensaje }</td>
-            <td>{ props.nombreCompleto }</td>
+            <td>{ props.nombreCompleto.length > 30 ? `${props.nombreCompleto.slice(0, 30)}...` : props.nombreCompleto }</td>
             <td>{ props.numeroCelular }</td>
             <td>{ props.createdAt }</td>
             <td>

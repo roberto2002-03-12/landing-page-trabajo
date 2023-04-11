@@ -355,7 +355,7 @@ export const FormularioPage = () => {
                                         value={ telefono }
                                         onChange={ onInputChange }
                                         error={ !!telefonoValid && formSubmited }
-                                        helperText={ !!telefono && formSubmited ? telefono : '' }
+                                        helperText={ !!telefonoValid && formSubmited ? telefonoValid : '' }
                                         sx={{
                                             width: 200,
                                             m: 1

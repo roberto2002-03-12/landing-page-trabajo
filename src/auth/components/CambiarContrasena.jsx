@@ -33,7 +33,10 @@ export const CambiarContrasena = () => {
   const onRecuperarContrasena = (event) => {
     event.preventDefault();
 
-    if (password !== passwordConfirm) Swal.fire('Contraseña incorrecta', 'Las contraseñas deben ser iguales para poder continuar', 'error');
+    if (password !== passwordConfirm) { 
+      Swal.fire('Contraseña incorrecta', 'Las contraseñas deben ser iguales para poder continuar', 'error');
+      return;
+    };
 
     setFormSubmited(true);
 

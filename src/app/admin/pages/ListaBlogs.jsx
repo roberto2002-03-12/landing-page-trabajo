@@ -1,7 +1,17 @@
 import React from 'react'
+import { NavBar, TablaBlog, FiltrosBlog } from '../components'
+import '../styles/ListaBlogStyle.css';
 
 export const ListaBlogs = () => {
   return (
-    <div>ListaBlogs</div>
+    <>
+      <NavBar />
+      <div className="container">
+        <FiltrosBlog />
+        <hr />
+        <br />
+        <TablaBlog />
+      </div>
+    </>
   )
 }
