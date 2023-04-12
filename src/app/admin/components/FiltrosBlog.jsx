@@ -1,5 +1,10 @@
-import { useForm } from '../../../hooks'
-import { TextField, Button } from '@mui/material';
+import { useMemo } from 'react';
+import { useForm } from '../../../hooks';
+import { useCategoriaApi } from '../../../hooks';
+import { useDispatch } from 'react-redux';
+import { onSetFiltersBlogs, onResetFiltersBlogs } from '../../../store';
+import { TextField, Button, Select, MenuItem,
+         FormControl, InputLabel } from '@mui/material';
 
 const inputs = {
   titulo_blog: '',
@@ -12,14 +17,20 @@ const style = {
 };
 
 export const FiltrosBlog = () => {
+  const dispatch = useDispatch();
+  const { categorias, listarCategorias } = useCategoriaApi();
   const { titulo_blog, categoria_blog, onInputChange, formState, onResetForm } = useForm(inputs);
+
+  useMemo(() => {
+    listarCategorias();
+  }, []);
 
   const onSearchBlog = (event) => {
     event.preventDefault();
 
     if (!titulo_blog && !categoria_blog) return;
 
-    console.log(formState);
+    dispatch(onSetFiltersBlogs(formState));
   };
 
   return (
@@ -37,16 +48,24 @@ export const FiltrosBlog = () => {
             name='titulo_blog'
             value={ titulo_blog }
           />
-          <TextField
-            variant='outlined'
-            label='Categoria'
-            focused
-            size='small'
-            sx={style}
-            onChange={ onInputChange }
-            name='categoria_blog'
-            value={ categoria_blog }
-          />
+          <FormControl variant='outlined' sx={{ ...style, width: '200px' }} size='small' focused>
+            <InputLabel id="filtro-blog-tp">Categoria</InputLabel>
+            <Select
+              labelId='filtro-blog-tp'
+              id='filtro-blog-tp'
+              label="Categoria"
+              defaultValue={ 'SUNAT' }
+              name='categoria_blog'
+              value={ categoria_blog }
+              onChange={ onInputChange }
+            >
+              {
+                categorias.map((cat) => (
+                  <MenuItem value={cat.idcategoria} key={cat.idcategoria}>{cat.nombre}</MenuItem>
+                ))
+              }
+            </Select>
+          </FormControl>
           <Button
             variant='outlined'
             type='submit'
@@ -60,6 +79,7 @@ export const FiltrosBlog = () => {
             size='large'
             onClick={() => {
               onResetForm()
+              dispatch(onResetFiltersBlogs())
             }}
           >
             Restablecer

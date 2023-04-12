@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { useReclamoApi } from '../../../hooks';
 import { Cargando } from '../../components';
 import { NavBar } from '../components';
@@ -30,7 +30,6 @@ export const VerReclamo = () => {
             <div className="card">
               <div className="card-body">
                 <h3 className="card-title text-center mb-4">Información de Usuario</h3>
-                <form>
                   <div className="form-group">
                     <label htmlFor="name">Nombre Completo</label>
                     <p type="text" readOnly className="form-control">{ claim?.nombreCompleto }</p>
@@ -103,8 +102,11 @@ export const VerReclamo = () => {
                     <label htmlFor="name">Fecha de envio</label>
                     <p type="text" readOnly className="form-control">{ claim?.createdAt }</p>
                   </div>
-                  <button className="btn btn-primary btn-block mt-4">Regresar</button>
-                </form>
+                  <button className="btn btn-primary btn-block mt-4">
+                    <Link style={{ color: 'white' }} to='/admin/lista-reclamos'>
+                      Regresar
+                    </Link>
+                  </button>
               </div>
             </div>
           </div>

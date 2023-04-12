@@ -1,13 +1,27 @@
 import { memo } from 'react';
-//ToDo import blogApi
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { onSetActiveBlog } from '../../../store';
 
-export const FilaBlog = () => {
+export const FilaBlog = memo(({props}) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const seleccionarBlogBtn = () => {
+    dispatch(onSetActiveBlog(props));
+    navigate(`/admin/blog/${props.idblog}`);
+  };
+
+  const eliminarBlogBtn = () => {
+    
+  }
+
   return (
     <tr>
-      <td>1</td>
-      <td>Gato esflinje</td>
-      <td>Noticias</td>
-      <td>2023-04-11T16:33:26.000Z</td>
+      <td>{props.idblog}</td>
+      <td>{props.titulo}</td>
+      <td>{props.categoria.nombre}</td>
+      <td>{props.createdAt}</td>
       <td>
         <div className="dropdown">
           <button className="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -15,14 +29,17 @@ export const FilaBlog = () => {
           </button>
           <ul className='dropdown-menu'>
             <li>
-              <a className="dropdown-item link-dropdown">Ver mensaje</a>
+              <a className="dropdown-item link-dropdown" onClick={ seleccionarBlogBtn } >Ver blog</a>
             </li>
             <li>
-              <a className="dropdown-item link-dropdown" target='_blank'>Enviar mensaje</a>
+              <a className='dropdown-item link-dropdown'>Editar</a>
+            </li>
+            <li>
+              <a className='dropdown-item link-dropdown' onClick={ eliminarBlogBtn }>Eliminar</a>
             </li>
           </ul>
         </div>
       </td>
     </tr>
   )
-}
+});

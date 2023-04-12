@@ -13,3 +13,17 @@
 .lista-blog-filtros-h5 {
   padding-top: 50px;
 }
+
+.card-blog-img-ddd {
+  width: 100%;
+  overflow: hidden;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.card-blog-img-ddd img {
+  height: 100%;
+}

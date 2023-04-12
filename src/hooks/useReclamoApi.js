@@ -41,7 +41,6 @@ export const useReclamoApi = () => {
             if (claim === null) {
                 const url = `/formulario-reclamo/${id}`;
                 const { data } = await landingPageApi.get(url);
-                console.log('no deberia pasar por acá.')
                 dispatch(onSetActiveClaim(data));
             }
         } catch (err) {
