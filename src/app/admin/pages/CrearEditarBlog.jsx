@@ -3,6 +3,7 @@ import { useForm, useCategoriaApi } from '../../../hooks';
 import { NavBar } from '../components';
 import { Cargando } from '../../components';
 import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const inputs = {
   titulo: '',
@@ -20,7 +21,7 @@ const inputsValidation = {
 
 const style = {
   mb: 2, 
-  width: '400px'
+  width: '90%'
 }
 
 export const CrearEditarBlog = () => {
@@ -40,7 +41,7 @@ export const CrearEditarBlog = () => {
       <NavBar />
       <div className="container mt-5 mb-5">
         <div className="row justify-content-center">
-          <div className="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12">
+          <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
             <div className="card">
               <div className="card-body">
                 <h3 className='card-tittle text-center mb-4'>Crear blog</h3>
@@ -60,7 +61,7 @@ export const CrearEditarBlog = () => {
                         sx={style}
                       />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group text-center">
                       <TextField
                         label='Descripción'
                         name='descripcion'
@@ -71,12 +72,12 @@ export const CrearEditarBlog = () => {
                         variant='outlined'
                         required
                         multiline
-                        rows={ 4 }
+                        rows={ 8 }
                         size='small'
-                        sx={{ mb: 2 }}
+                        sx={style}
                       />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group text-center">
                       <TextField
                         label='URL del blog'
                         name='urlBlog'
@@ -87,11 +88,11 @@ export const CrearEditarBlog = () => {
                         variant='outlined'
                         required
                         size='small'
-                        sx={{ mb: 2 }}
+                        sx={style}
                       />
                     </div>
-                    <div className="form-group">
-                      <FormControl variant='outlined' sx={{ width: '200px' }} size='small'>
+                    <div className="form-group text-center">
+                      <FormControl variant='outlined' sx={style} size='small'>
                         <InputLabel id="filtro-blog-tp">Categoria</InputLabel>
                         <Select
                           labelId='filtro-blog-tp'
@@ -109,6 +110,32 @@ export const CrearEditarBlog = () => {
                           }
                         </Select>
                       </FormControl>
+                    </div>
+                    <div className="form-group-blog-buttons">
+                      <Button
+                        variant='contained'
+                        type='submit'
+                        size='large'
+                        sx={{
+                          width: '200px'
+                        }}
+                      >
+                        Crear
+                      </Button>
+                      <Button
+                        variant='outlined'
+                        size='large'
+                        onClick={() => {
+                          onResetForm();
+                        }}
+                        sx={{
+                          width: '200px'
+                        }}
+                      >
+                        <Link to='/admin/lista-blogs'>
+                          Cancelar
+                        </Link>
+                      </Button>
                     </div>
                   </form>
                 </div>
