@@ -3,15 +3,56 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthApi } from './';
 import { useSelector, useDispatch } from 'react-redux';
 import { onLoadBlogs, onChangePagesBlogs, onSetActiveBlog, 
-  onResetFiltersBlogs, onSetFiltersBlogs, onSetNullBlog } from '../store';
+  onResetFiltersBlogs, onSetFiltersBlogs, onSetNullBlog, 
+  onCheckingBlog, onSubmitBlog, onErrorBlog, clearErrorBlogMessage } from '../store';
 import Swal from 'sweetalert2';
 
 export const useBlogApi = () => {
   const stateAuth = localStorage.getItem('stateAuth');
   const { salirSesion } = useAuthApi();
-  const { isLoadingBlog, blogs, paginas, blog, titulo_blog, categoria_blog } = useSelector(state => state.blog);
+  const { isLoadingBlog, blogs, paginas, blog, titulo_blog, categoria_blog,
+          statusSubmitBlog, mensajeErrorBlog, mensajeExitoBlog } = useSelector(state => state.blog);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const subirBlog = async (formState, image) => {
+    dispatch(onCheckingBlog());
+    let newFormState = { ...formState }
+    try {
+      const formData = new FormData();
+      formData.append('titulo', newFormState.titulo);
+      formData.append('descripcion', newFormState.descripcion);
+      formData.append('foto_blog', image);
+      formData.append('urlBlog', newFormState.urlBlog);
+      formData.append('categoriaId', newFormState.categoriaId);
+
+      await landingPageApi.post('/blog', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+    });
+
+      dispatch(onSubmitBlog('Blog publicado exitosamente'));
+      navigate('/admin/lista-blogs');
+      setTimeout(() => {
+        dispatch(clearErrorBlogMessage());
+      }, 10);
+    } catch (err) {
+      if (err.response.status === 401) {
+        navigate('/login');
+        dispatch(onErrorBlog('Tiempo expirado'));
+        setTimeout(() => {
+          dispatch(clearErrorBlogMessage());
+          salirSesion();
+        }, 10);
+      } else {
+        dispatch(onErrorBlog(err.response?.data?.message || 'Error en publicar el blog, contacte con el admin o espere un tiempo e intente de nuevo'));
+        setTimeout(() => {
+          dispatch(clearErrorBlogMessage());
+        }, 10);
+      }
+    };
+  };
 
   const listarBlogs = async (offset) => {
     try {
@@ -20,7 +61,7 @@ export const useBlogApi = () => {
                 + (categoria_blog !== '' ? `&categoria_blog=${categoria_blog}` : '')
 
       const { data } = await landingPageApi.get(url);
-      dispatch(onLoadBlogs(data.blogs))
+      dispatch(onLoadBlogs(data.blogs));
       dispatch(onChangePagesBlogs(data.cantidad));
     } catch (err) {
       navigate('/');
@@ -86,12 +127,16 @@ export const useBlogApi = () => {
     blogs,
     titulo_blog,
     categoria_blog,
+    statusSubmitBlog,
+    mensajeErrorBlog,
+    mensajeExitoBlog,
 
     listarBlogs,
     seleccionarBlog,
     borrarBlog,
     establecerFiltros,
     borrarFiltros,
-    eliminarBlog
+    eliminarBlog,
+    subirBlog
   };
 };

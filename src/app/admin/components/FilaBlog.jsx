@@ -1,9 +1,11 @@
 import { memo } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { onSetActiveBlog } from '../../../store';
+import { useBlogApi } from '../../../hooks';
 
 export const FilaBlog = memo(({props}) => {
+  const { eliminarBlog } = useBlogApi();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -13,8 +15,13 @@ export const FilaBlog = memo(({props}) => {
   };
 
   const eliminarBlogBtn = () => {
-    
-  }
+    eliminarBlog(props.idblog);
+  };
+
+  const editarBlogBtn = () => {
+    dispatch(onSetActiveBlog(props));
+    navigate(`/admin/editar-blog/${props.idblog}`);
+  };
 
   return (
     <tr>
@@ -32,7 +39,7 @@ export const FilaBlog = memo(({props}) => {
               <a className="dropdown-item link-dropdown" onClick={ seleccionarBlogBtn } >Ver blog</a>
             </li>
             <li>
-              <a className='dropdown-item link-dropdown'>Editar</a>
+              <a className='dropdown-item link-dropdown' onClick={ editarBlogBtn }>Editar</a>
             </li>
             <li>
               <a className='dropdown-item link-dropdown' onClick={ eliminarBlogBtn }>Eliminar</a>

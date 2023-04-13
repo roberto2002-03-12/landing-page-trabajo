@@ -4,6 +4,9 @@ export const blogSlice = createSlice({
   name: 'reclamo',
   initialState: {
     isLoadingBlog: true,
+    statusSubmitBlog: '',
+    mensajeExitoBlog: undefined,
+    mensajeErrorBlog: undefined,
     blogs: [],
     paginas: 1,
     blog: null,
@@ -11,6 +14,23 @@ export const blogSlice = createSlice({
     categoria_blog: ''
   },
   reducers: {
+    onCheckingBlog: (state) => {
+      state.statusSubmitBlog = 'revisando';
+      state.mensajeExitoBlog = undefined;
+    },
+    onSubmitBlog: (state, {payload}) => {
+      state.statusSubmitBlog = 'enviado';
+      state.mensajeExitoBlog = payload;
+    },
+    onErrorBlog: (state, {payload}) => {
+      state.mensajeExitoBlog = undefined;
+      state.statusSubmitBlog = 'no-enviado';
+      state.mensajeErrorBlog = payload;
+    },
+    clearErrorBlogMessage: (state) => {
+      state.mensajeExitoBlog = undefined;
+      state.mensajeErrorBlog = undefined;
+    },
     onLoadBlogs: (state, { payload }) => {
       state.blogs = payload;
       state.isLoadingBlog = false;
@@ -44,5 +64,9 @@ export const {
   onSetActiveBlog,
   onResetFiltersBlogs,
   onSetFiltersBlogs,
-  onSetNullBlog
+  onSetNullBlog,
+  onCheckingBlog,
+  onSubmitBlog,
+  onErrorBlog,
+  clearErrorBlogMessage
 } = blogSlice.actions;

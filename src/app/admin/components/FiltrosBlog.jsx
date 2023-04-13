@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { onSetFiltersBlogs, onResetFiltersBlogs } from '../../../store';
 import { TextField, Button, Select, MenuItem,
          FormControl, InputLabel } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const inputs = {
   titulo_blog: '',
@@ -67,7 +68,7 @@ export const FiltrosBlog = () => {
             </Select>
           </FormControl>
           <Button
-            variant='outlined'
+            variant='contained'
             type='submit'
             size='large'
             sx={style}
@@ -77,12 +78,22 @@ export const FiltrosBlog = () => {
           <Button
             variant='outlined'
             size='large'
+            sx={style}
             onClick={() => {
               onResetForm()
               dispatch(onResetFiltersBlogs())
             }}
           >
             Restablecer
+          </Button>
+          <Button
+            variant='contained'
+            size='large'
+            sx={style}
+          >
+            <Link style={{ color: 'white' }} to='/admin/crear-blog'>
+              Publicar
+            </Link>
           </Button>
         </form>
       </div>

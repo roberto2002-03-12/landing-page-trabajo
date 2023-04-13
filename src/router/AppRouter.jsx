@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { LoginRegisterPage, RecuperarContrasena } from '../auth/pages/';
 import { LandingPage, FormularioPage } from '../app/landing/';
 import { ListaBlogs, ListaReclamos, ListaMensajes, VerReclamo, VerBlog, CrearEditarBlog } from '../app/admin/pages';
@@ -39,6 +39,7 @@ export const AppRouter = () => {
                         <Route path='/admin/lista-blogs' element={ <ListaBlogs/> } />
                         <Route path='/admin/blog/:id' element={<VerBlog />} />
                         <Route path='/admin/crear-blog' element={<CrearEditarBlog />} />
+                        <Route path='/admin/editar-blog/:id' element={<CrearEditarBlog />} />
                     </>
                 ))
             }
