@@ -1,12 +1,11 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 import { useForm, useCategoriaApi, useBlogApi } from '../../../hooks';
 import { NavBar } from '../components';
 import { Cargando } from '../../components';
 import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const inputs = {
   titulo: '',
@@ -17,7 +16,7 @@ const inputs = {
 
 const inputsValidation = {
   titulo: [(value) => value.length >= 6, 'Debe tener por lo menos 6 caracteres'],
-  descripcion: [(value) => value.length >= 100 && value.length < 1000, 'Debe tener por lo menos 100 caracteres o ser menor a 1000 caracteres'],
+  descripcion: [(value) => value.length >= 100 && value.length <= 1000, 'Debe tener por lo menos 100 caracteres o ser menor a 1000 caracteres'],
   urlBlog: [(value) => value.includes('https'), 'Debe ser una url valida'],
 };
 

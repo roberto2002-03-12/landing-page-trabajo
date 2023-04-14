@@ -1,7 +1,12 @@
-import React from 'react'
+import { NavBar, TablaCategoria } from "../components"
 
 export const ListaCategoria = () => {
   return (
-    <div>ListaCategoria</div>
+    <>
+      <NavBar />
+      <div className="container">
+        <TablaCategoria />
+      </div>
+    </>
   )
 }

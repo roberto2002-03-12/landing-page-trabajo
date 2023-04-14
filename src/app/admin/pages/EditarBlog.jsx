@@ -20,7 +20,7 @@ export const EditarBlog = () => {
   const { categorias, listarCategorias } = useCategoriaApi();
   
   window.addEventListener('popstate', () => {
-    borrarReclamo()
+    borrarBlog()
   });
 
   //esta parte es para el formulario

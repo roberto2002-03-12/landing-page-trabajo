@@ -26,7 +26,7 @@ export const FilaBlog = memo(({props}) => {
   return (
     <tr>
       <td>{props.idblog}</td>
-      <td>{props.titulo}</td>
+      <td>{props.titulo.length > 45 ? `${props.titulo.slice(0, 45)}...` : props.titulo }</td>
       <td>{props.categoria.nombre}</td>
       <td>{props.createdAt}</td>
       <td>

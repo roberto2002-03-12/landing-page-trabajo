@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { NavBar } from '../../landing/components';
 import '../style/BlogSeccionStyle.css';
@@ -12,7 +11,7 @@ export const BlogSeccion = () => {
       let currentScrollY = window.scrollY;
       let blogHeader = document.querySelector('.blog-header');
       let blogHeaderHeight = blogHeader.getBoundingClientRect().height;
-      blogHeaderHeight = blogHeaderHeight - 100;
+      blogHeaderHeight = blogHeaderHeight - 300;
 
       setIsScrolled(currentScrollY > blogHeaderHeight);
     };

@@ -7,11 +7,11 @@ import Swal from "sweetalert2";
 
 export const useCategoriaApi = () => {
   const { salirSesion } = useAuthApi();
-  const { isLoadingCat, categorias , categoria, paginas } = useSelector(state => state.categoria);
+  const { isLoadingCat, categorias , categoria, paginas, catStatus } = useSelector(state => state.categoria);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const listarCategorias = async (offset) => {
+  const listarCategorias = async () => {
     try {
       const { data } = await landingPageApi.get('/categoria');
       dispatch(onLoadCategoria(data.categorias));
@@ -25,6 +25,7 @@ export const useCategoriaApi = () => {
     try {
       await landingPageApi.post('/categoria', formState);
       Swal.fire('Registro exitoso', 'se agregó una nueva categoría', 'success');
+      listarCategorias();
     } catch(err) {
       if (err.response.status === 401) {
         navigate('/login');
@@ -52,7 +53,7 @@ export const useCategoriaApi = () => {
   const eliminarCategoria = async (id) => {
     try {
       await landingPageApi.delete(`/categoria/${id}`);
-      navigate('/admin/lista-categoria');
+      listarCategorias();
       Swal.fire('Eliminación completada', 'se eliminó la categoría seleccionada', 'success');
     } catch (err) {
       if (err.response.status === 401) {

@@ -4,6 +4,7 @@ export const categoriaSlice = createSlice({
   name: 'categoria',
   initialState: {
     isLoadingCat: true,
+    catStatus: '',
     categorias: [],
     paginas: 1,
     categoria: null,
@@ -18,12 +19,19 @@ export const categoriaSlice = createSlice({
       state.paginas = paginasDisponibles;
     },
     onSetActiveCat: (state, {payload}) => {
-      state.isLoadingCat = true;
       state.categoria = payload;
-      state.isLoadingCat = false;
     },
     onSetNullCat: (state) => {
       state.categoria = '';
+    },
+    onSubmitCategoria: (state) => {
+      state.catStatus = 'enviado';
+    },
+    onCheckingCategoria: (state) => {
+      state.catStatus = 'revisando';
+    },
+    onErrorCategoria: (state) => {
+      state.catStatus = 'no-enviado';
     }
   }
 });
@@ -32,5 +40,8 @@ export const {
   onLoadCategoria,
   onChangePageCat,
   onSetActiveCat,
-  onSetNullCat
+  onSetNullCat,
+  onSubmitCategoria,
+  onCheckingCategoria,
+  onErrorCategoria
 } = categoriaSlice.actions;

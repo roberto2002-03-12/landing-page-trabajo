@@ -14,8 +14,6 @@ export const AsideBlog = () => {
           </ul>
         </div>
       </div>
-      <div className="aside-blog-date-publicated">
-      </div>
     </div>
   )
 };

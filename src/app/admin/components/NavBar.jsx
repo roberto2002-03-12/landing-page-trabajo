@@ -24,6 +24,9 @@ export const NavBar = memo(() => {
                         <li className="nav-item">
                             <Link to='/admin/lista-blogs' className="nav-link">Blogs publicados</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to='/admin/lista-categorias' className='nav-link'>Lista de categorias</Link>
+                        </li>
                     </ul>
                     <div className='d-flex'>
                         <button className="btn btn-light" type="submit" onClick={() => salirSesion()}>Cerrar sesión</button>

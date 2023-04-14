@@ -9,7 +9,7 @@
     margin-top: 30px;
     border-radius: 20px;
     background-color: aliceblue;
-    width: 200px;
+    width: 250px;
     height: auto;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -46,11 +46,12 @@
 /*lista*/
 
 .card-blog {
+    margin: 0 auto;
     margin-top: 30px;
     border-radius: 20px;
     background-color: aliceblue;
     width: 800px;
-    height: 500px;
+    min-height: 450px;
     box-shadow: 5px 5px 3px rgba(168, 168, 168, 0.603);
 }
 
@@ -59,4 +60,23 @@
     width: 100%;
     height: 300px;
     overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-content-date {
+    margin-left: 10px;
+    margin-top: 3px;
+    height: 24px;
+    display: flex;
+}
+
+@media (max-width: 600px) {
+    .card-blog {
+        width: 100%;
+    }
+
+    .aside-blog-category {
+        margin: 0 auto;
+    }
 }
