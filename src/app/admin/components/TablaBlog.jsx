@@ -6,7 +6,7 @@ import ReactPaginate from 'react-paginate';
 
 export const TablaBlog = memo(() => {
   const [currentPage, setCurrentPage] = useState(0);
-  const { blog, blogs, paginas, titulo_blog, categoria_blog, listarBlogs, isLoadingBlog } = useBlogApi();
+  const { blogs, paginas, titulo_blog, categoria_blog, listarBlogs, isLoadingBlog } = useBlogApi();
   
   const cambiarPagina = (selectedPage) => {
     setCurrentPage(selectedPage.selected);

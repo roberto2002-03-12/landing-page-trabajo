@@ -62,6 +62,12 @@
     overflow: hidden;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-blog-img img {
+    height: 300px;
 }
 
 .card-content-date {

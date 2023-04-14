@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const AsideBlog = () => {
+export const AsideBlog = (categ) => {
+  console.log(categ);
   return (
     <div className='aside-blog-content'>
       <div className="aside-blog-category">
