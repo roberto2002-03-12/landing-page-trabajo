@@ -26,9 +26,9 @@ const style = {
   width: '90%'
 }
 
-export const CrearEditarBlog = () => {
+export const CrearBlog = () => {
   //react redux
-  const { statusSubmitBlog, mensajeErrorBlog, mensajeExitoBlog, blog } = useSelector(state => state.blog);
+  const { statusSubmitBlog, mensajeErrorBlog, mensajeExitoBlog } = useSelector(state => state.blog);
   //Hooks apis
   const { subirBlog, seleccionarBlog } = useBlogApi();
   const { categorias, listarCategorias } = useCategoriaApi();
@@ -40,19 +40,10 @@ export const CrearEditarBlog = () => {
   const [selectedFile, setSelectedFile] = useState([]);
   const [formSubmited, setFormSubmited] = useState(false);
 
-  const { id } = useParams();
-
   //solo listar por primera vez
   useMemo(() => {
     listarCategorias();
   }, []);
-
-  //esto es para edit
-  useMemo(() => {
-    if (id !== undefined) {
-      seleccionarBlog(id);
-    }
-  }, [id])
 
   //esto es para mensajeria
   useLayoutEffect(() => {
@@ -80,22 +71,6 @@ export const CrearEditarBlog = () => {
     setFormSubmited(false);
   };
 
-  /*Este formulario es para updates*/
-  const [formStateUpdate, setFormStateUpdate] = useState({
-    tituloUpdate: blog?.titulo,
-    descripcionUpdate: blog?.descripcion,
-    urlBlogUpdate: blog?.urlBlog,
-    categoriaIdUpdate: blog?.categoriaId
-  });
-
-  const onInputUpdateChange = ({target}) => {
-    const { name, value } = target;
-    setFormStateUpdate({
-      ...formStateUpdate,
-      [name]: value
-    })
-  };
-
   return (
     <>
       <NavBar />
@@ -109,15 +84,15 @@ export const CrearEditarBlog = () => {
                     <Cargando />
                   ) : (
                     <>
-                    <h3 className='card-tittle text-center mb-4'>{(blog !== null ? 'Actualizar Blog' : 'Crear Blog')}</h3>
+                    <h3 className='card-tittle text-center mb-4'>Crear blog</h3>
                     <div className="card-body-inputs">
                       <form onSubmit={ onSubmitBlog }>
                         <div className="form-group text-center">
                           <TextField
                             label='Título'
-                            name={blog !== null ? 'tituloUpdate' : 'titulo' }
-                            value={ blog !== null ? formStateUpdate.tituloUpdate : titulo }
-                            onChange={ blog !== null ? onInputUpdateChange : onInputChange }
+                            name={'titulo' }
+                            value={titulo }
+                            onChange={ onInputChange }
                             error={ !!tituloValid && formSubmited }
                             helperText={ !!tituloValid && formSubmited ? tituloValid : '' }
                             variant='outlined'

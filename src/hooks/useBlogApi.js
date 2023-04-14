@@ -54,6 +54,55 @@ export const useBlogApi = () => {
     };
   };
 
+  const editarBlog = async (formState, image, id) => {
+    dispatch(onCheckingBlog());
+    let newFormState = { ...formState };
+    try {
+      const formData = new FormData();
+      for (const key in newFormState) {
+        if (newFormState.hasOwnProperty(key)) {
+          if (newFormState[key] !== blog[key]) {
+            formData.append(key, newFormState[key]);
+          }
+        }
+      };
+
+      if (image.length !== 0) formData.append('foto_blog', image);
+
+      await landingPageApi.put(`/blog/${id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      dispatch(onSubmitBlog('Blog editado exitosamente'));
+      navigate('/admin/lista-blogs');
+      setTimeout(() => {
+        dispatch(clearErrorBlogMessage());
+      }, 10);
+
+    } catch (err) {
+      if (err.response.status === 401) {
+        navigate('/login');
+        dispatch(onErrorBlog('Tiempo expirado'));
+        setTimeout(() => {
+          dispatch(clearErrorBlogMessage());
+          salirSesion();
+        }, 10);
+      } else if (err.response.status === 400) {
+        dispatch(onErrorBlog(err.response?.data?.message));
+        setTimeout(() => {
+          dispatch(clearErrorBlogMessage());
+        }, 10);
+      } else {
+        dispatch(onErrorBlog(err.response?.data?.message || 'Error en publicar el blog, contacte con el admin o espere un tiempo e intente de nuevo'));
+        setTimeout(() => {
+          dispatch(clearErrorBlogMessage());
+        }, 10);
+      }
+    }
+  };
+
   const listarBlogs = async (offset) => {
     try {
       const url = `/blog?offset=${offset}`
@@ -137,6 +186,7 @@ export const useBlogApi = () => {
     establecerFiltros,
     borrarFiltros,
     eliminarBlog,
-    subirBlog
+    subirBlog,
+    editarBlog
   };
 };

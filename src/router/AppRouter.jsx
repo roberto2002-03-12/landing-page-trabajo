@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { LoginRegisterPage, RecuperarContrasena } from '../auth/pages/';
 import { LandingPage, FormularioPage } from '../app/landing/';
-import { ListaBlogs, ListaReclamos, ListaMensajes, VerReclamo, VerBlog, CrearEditarBlog } from '../app/admin/pages';
+import { ListaBlogs, ListaReclamos, ListaMensajes, VerReclamo, VerBlog, CrearBlog, EditarBlog } from '../app/admin/pages';
 import { BlogPestana, BlogSeccion } from '../app/blog/pages';
 import { Box, CircularProgress } from '@mui/material';
 import { useAuthApi } from '../hooks';
@@ -38,8 +38,8 @@ export const AppRouter = () => {
                         <Route path='/admin/reclamo/:id' element={ <VerReclamo /> } />
                         <Route path='/admin/lista-blogs' element={ <ListaBlogs/> } />
                         <Route path='/admin/blog/:id' element={<VerBlog />} />
-                        <Route path='/admin/crear-blog' element={<CrearEditarBlog />} />
-                        <Route path='/admin/editar-blog/:id' element={<CrearEditarBlog />} />
+                        <Route path='/admin/crear-blog' element={<CrearBlog />} />
+                        <Route path='/admin/editar-blog/:id' element={<EditarBlog />} />
                     </>
                 ))
             }
