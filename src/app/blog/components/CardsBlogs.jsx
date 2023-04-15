@@ -1,12 +1,11 @@
-import React from 'react'
-import BgExample from '../../landing/img/BG.svg';
+import React from 'react';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { Button } from '@mui/material';
 import { transformDateFormat } from '../helpers/transformDateFormat';
 
 export const CardsBlogs = ({props}) => {
   return (
-    <div className='card-blog'>
+    <div className='card-blog' style={{ marginBottom: '20px' }}>
       <div className="card-blog-img">
         <img src={props.urlImagen} alt="Imagen blog" />
       </div>

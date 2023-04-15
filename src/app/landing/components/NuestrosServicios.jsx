@@ -14,7 +14,7 @@ export const NuestrosServicios = memo(() => {
     <section className='landing-section-3' id='landing-section-3'>
         <div className="container">
             <h4 className='section-3-title'>
-                Nuestros servicios
+                Nuestros Procesos de trabajo
             </h4>
             <div className='row'>
                 <div className="section-3-container-card col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">

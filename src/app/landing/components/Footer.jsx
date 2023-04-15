@@ -2,9 +2,10 @@ import { memo } from 'react'
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import HomeIcon from '@mui/icons-material/Home';
 import EmailIcon from '@mui/icons-material/Email';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import CallIcon from '@mui/icons-material/Call';
 import { Link } from 'react-router-dom';
 
@@ -24,7 +25,10 @@ export const Footer = memo(() => {
                 <LinkedInIcon />
                 </a>
                 <a href='' className='me-4 text-reset'>
-                <GitHubIcon />
+                <InstagramIcon />
+                </a>
+                <a href='' className='me-4 text-reset'>
+                <YouTubeIcon />
                 </a>
             </div>
             </section>
@@ -47,13 +51,13 @@ export const Footer = memo(() => {
                     <h6 className='text-uppercase fw-bold mb-4'>Otros</h6>
                     <p>
                     <Link to={'/reclamacion'} className='text-reset'>
-                        Formulario de quejas
+                        Libro de reclamos
                     </Link>
                     </p>
                     <p>
-                    <a href='#!' className='text-reset'>
+                    <Link to={'/blog'} className='text-reset'>
                         Blog
-                    </a>
+                    </Link>
                     </p>
                 </MDBCol>
     

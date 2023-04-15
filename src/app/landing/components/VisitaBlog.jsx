@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import { Button } from '@mui/material'
+import { Link } from 'react-router-dom';
 
 export const VisitaBlog = memo(() => {
   return (
@@ -21,7 +22,9 @@ export const VisitaBlog = memo(() => {
                             height: '45px',
                         }}
                     >
-                        Visitar
+                        <Link to={'/blog'} style={{ color: 'white', textDecoration: 'none' }}>
+                            Visitar
+                        </Link>
                     </Button>
                     <p>
                         Mantente al tanto de guías o información útil que te puede ayudar en tu empresa

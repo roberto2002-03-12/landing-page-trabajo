@@ -15,7 +15,6 @@ export const QuienesSomos = memo(() => {
                             archivos de texto.
                         </p>
                     </div>
-
                 </div>
                 <div className="section-1-img col-xl-6 col-md-6 col-lg-6 col-sm-12 col-12">
                     <img src={ QuienesSomosImg } alt="" />

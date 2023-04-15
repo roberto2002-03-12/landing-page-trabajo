@@ -102,7 +102,7 @@ export const LandingPage = () => {
       //getBoundingClientRect retorna información acerca del elemento seleccionado
       //en este caso solo queremos saber el alto de landingHeader
       let landingHeaderHeight = landingHeader.getBoundingClientRect().height;
-      landingHeaderHeight = landingHeaderHeight - 100
+      landingHeaderHeight = landingHeaderHeight - 600
       //preguntar que demonios sucede acá
       setIsScrolled(currentScrollY > landingHeaderHeight);
     };

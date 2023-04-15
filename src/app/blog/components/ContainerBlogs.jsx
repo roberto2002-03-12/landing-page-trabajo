@@ -3,8 +3,9 @@ import { useMemo, useState } from 'react';
 import { CardsBlogs } from './';
 import '../style/ContainerBlogsStyle.css';
 import { useDispatch } from 'react-redux';
-import { onSetFiltersBlogs } from '../../../store';
+import { onSetFiltersBlogs, onResetFiltersBlogs } from '../../../store';
 import ReactPaginate from 'react-paginate';
+import { Button } from '@mui/material';
 
 export const ContainerBlogs = () => {
     const dispatch = useDispatch();
@@ -14,11 +15,11 @@ export const ContainerBlogs = () => {
 
     useMemo(() => {
         listarBlogs(currentPage * 20);
-    }, []);
+    }, [categoria_blog]);
 
     useMemo(() => {
         listarCategorias()
-    }, [categoria_blog]);
+    }, []);
 
     const onFilterBlogByCategory = (num) => {
         dispatch(onSetFiltersBlogs({categoria_blog: num}));
@@ -26,6 +27,10 @@ export const ContainerBlogs = () => {
 
     const cambiarPagina = (selectedPage) => {
         setCurrentPage(selectedPage.selected);
+    };
+
+    const onResetFilterBlogBtn = () => {
+        dispatch(onResetFiltersBlogs());
     };
 
     return (
@@ -42,20 +47,36 @@ export const ContainerBlogs = () => {
                                         categorias.map((cat) => (
                                             <li 
                                                 key={cat.idcategoria}
-                                                onClick={() => {
-                                                    onFilterBlogByCategory(cat.idcategoria)
-                                                }}
                                             >
-                                                {cat.nombre}
+                                                <Button
+                                                    onClick={() => {
+                                                        onFilterBlogByCategory(cat.idcategoria)
+                                                    }}
+                                                    variant='text'
+                                                    size='small'
+                                                    sx={{color: 'black', display: 'flex', justifyContent: 'flex-start'}}
+                                                >
+                                                    {cat.nombre}
+                                                </Button>
                                             </li>
                                         ))
                                     }
+                                    <li>
+                                        <Button
+                                            onClick={ onResetFilterBlogBtn }
+                                            variant='text'
+                                            size='small'
+                                            sx={{color: 'black'}}
+                                        >
+                                            Restablecer
+                                        </Button>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="col-xl-9">
+                <div className="col-xl-9 col-lg-9 col-md-10 col-sm-12 col-12">
                     {
                         blogs.map((blg) => (
                             <CardsBlogs props={blg} key={blg.idblog}/>

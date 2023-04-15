@@ -15,4 +15,12 @@
 
 .blog-header-text {
     color: white
-};
+}
+
+@media (max-width: 600px) {
+    .blog-header-text {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    } 
+}

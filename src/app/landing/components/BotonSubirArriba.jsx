@@ -1,9 +1,9 @@
-import React from 'react'
+import { memo } from 'react'
 import ScrollIntoView from 'react-scroll-into-view';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { Button } from '@mui/material';
 
-export const BotonSubirArriba = () => {
+export const BotonSubirArriba = memo(() => {
     return (
         <ScrollIntoView selector='#landing-header'>
             <Button
@@ -23,4 +23,4 @@ export const BotonSubirArriba = () => {
             </Button>
         </ScrollIntoView>
     )
-}
+});

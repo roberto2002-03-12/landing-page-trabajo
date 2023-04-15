@@ -18,7 +18,6 @@ const cardStyle = {
 }
 
 export const NuestrosPlanes = memo(() => {
-    console.log('deberia renderizarme una vez')
     return (
         <section className="landing-section-5" id='landing-section-5'>
             <h4 className='section-5-title'>Nuestros planes</h4>
