@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useForm } from '../../hooks';
 import { useFormularioApi } from '../../hooks/useFormularioApi';
+import { getEnvVariables } from '../../helpers/getEnvVariables';
 import './styles/LandingStyle.css';
 import '@splidejs/react-splide/css';
 import { NavBar, QuienesSomos, NuestraExperiencia, NuestrosServicios, 
@@ -32,6 +33,8 @@ const formularioCamposValidaciones = {
 }
 
 export const LandingPage = () => {
+  const env = getEnvVariables();
+  console.log(env.GOOGLE_KAPCHA_TOKEN);
   //hook para usar api
   const { subirMensaje, mensajeError, mensajeExito, estado } = useFormularioApi();
 
@@ -54,16 +57,17 @@ export const LandingPage = () => {
 
   const onChangeCaptcha = (token) => {
     setCaptchaToken(token);
-  }
+  };
 
   const [formSubmited, setFormSubmited] = useState(false);
 
   const onSubmitMensaje = (event) => {
-    //prevenir que se refresque la página
     event.preventDefault();
 
-    //Validar captcha
-    //if (!captchaToken) Swal.fire('Error al enviar mensaje', 'No has verificado que seas humano', 'error');
+    if (!captchaToken) {
+      Swal.fire('Error al enviar mensaje', 'No has verificado que seas humano', 'error');
+      return;
+    } 
 
     setFormSubmited(true);
 
@@ -71,7 +75,6 @@ export const LandingPage = () => {
 
     subirMensaje(formState);
 
-    //resetear formulario
     onResetForm();
 
     setFormSubmited(false);
@@ -102,7 +105,7 @@ export const LandingPage = () => {
       //getBoundingClientRect retorna información acerca del elemento seleccionado
       //en este caso solo queremos saber el alto de landingHeader
       let landingHeaderHeight = landingHeader.getBoundingClientRect().height;
-      landingHeaderHeight = landingHeaderHeight - 600
+      landingHeaderHeight = landingHeaderHeight - 100
       //preguntar que demonios sucede acá
       setIsScrolled(currentScrollY > landingHeaderHeight);
     };
@@ -226,9 +229,8 @@ export const LandingPage = () => {
                       />
 
                       <ReCAPTCHA
-                        sitekey={'key'}
+                        sitekey={ env.GOOGLE_KAPCHA_TOKEN }
                         onChange={onChangeCaptcha}
-                        size='compact'
                         style={{paddingTop: '14px', paddingLeft:'26px', height: '95px'}}
                       />
                       
