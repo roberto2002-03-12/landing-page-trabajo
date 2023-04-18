@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useMemo, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { useReclamoApi } from '../../../hooks';
 import { Cargando } from '../../components';
 import { NavBar } from '../components';

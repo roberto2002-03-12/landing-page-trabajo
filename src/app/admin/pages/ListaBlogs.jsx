@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { NavBar, TablaBlog, FiltrosBlog } from '../components'
 import '../styles/ListaBlogStyle.css';
 

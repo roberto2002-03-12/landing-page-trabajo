@@ -1,5 +1,6 @@
 import { NavBar, TablaMensaje, FiltrosMensaje } from '../components';
 import '../styles/ListaMensajesStyle.css'
+import { useEffect } from 'react'
 
 export const ListaMensajes = () => {
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo , useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom';
 import { useBlogApi } from '../../../hooks';
 import { NavBar } from '../components';
