@@ -1,19 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm, useFormularioApi } from '../../hooks';
 import { useNavigate } from 'react-router-dom';
 import { mostrarProvinciasPorDepartamento, mostrarDistritosPorProvincia } from './helpers';
 import { departamentos } from './data';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { TextField, InputLabel, Select, 
          MenuItem, createTheme, FormControl, 
          Button, Box, Checkbox, CircularProgress } from '@mui/material';
 import Swal from 'sweetalert2'; 
 import './styles/FormularioStyle.css';
-
-const theme = createTheme({
-    typography: {
-        fontSize: 11
-    }
-});
 
 const inputs = {
     tipoPersona: '',
@@ -51,6 +46,22 @@ const inputsValidacion = {
 }
 
 export const FormularioPage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    //datos para recaptcha
+    const [captchaToken, setCaptchaToken] = useState('');
+
+    const recaptchaRef = useRef(null);
+
+    useEffect(() => {
+        recaptchaRef.current.reset();
+    }, []);
+
+    const onChangeCaptcha = (token) => {
+        setCaptchaToken(token);
+    };
+
     const navigate = useNavigate();
     const { subirFormularioReclamo, mensajeError, mensajeExito, estado } = useFormularioApi();
 
@@ -108,12 +119,16 @@ export const FormularioPage = () => {
         //prevenir que se refresque la página
         event.preventDefault();
 
+        if (!captchaToken) {
+            Swal.fire('Error al enviar mensaje', 'No has verificado que seas humano', 'error');
+            return;
+        } 
+
         setFormSubmited(true);
 
         if (!isFormValid) return;
 
-        //ToDo enviarForm
-        subirFormularioReclamo(formState, selectedFile)
+        subirFormularioReclamo(formState, selectedFile, captchaToken)
 
         onResetForm();
 
@@ -484,6 +499,14 @@ export const FormularioPage = () => {
                                     value={ autorizoActo }
                                     onChange={ onInputChange }
                                     name="autorizoActo"
+                                />
+                            </div>
+                            <div className="col-xl-12">
+                                <ReCAPTCHA
+                                    ref={recaptchaRef}
+                                    sitekey={'6LfvmJYlAAAAAEgjsONXL6v4t_-e1XDfCgtlm9ji'}
+                                    onChange={onChangeCaptcha}
+                                    style={{paddingTop: '14px', paddingLeft:'26px', height: '95px'}}
                                 />
                             </div>
                         </div>

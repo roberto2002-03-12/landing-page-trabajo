@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { onSetActiveClaim } from '../../../store';
+import { transformDateFormat } from '../../../helpers';
 
 export const FilaReclamo = memo(({props}) => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const FilaReclamo = memo(({props}) => {
       <td>{props.tipoReclamo}</td>
       <td>{props.bienContratado}</td>
       <td>{props.telefono}</td>
-      <td>{props.createdAt}</td>
+      <td>{ transformDateFormat(props.createdAt)}</td>
       <td>
         <div className="dropdown">
           <button className="btn btn-outline-primary btn-sm dropdown-toggle" type='button' data-bs-toggle="dropdown" aria-expanded="false">

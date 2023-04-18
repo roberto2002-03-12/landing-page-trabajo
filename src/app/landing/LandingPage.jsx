@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm } from '../../hooks';
 import { useFormularioApi } from '../../hooks/useFormularioApi';
-import { getEnvVariables } from '../../helpers/getEnvVariables';
 import './styles/LandingStyle.css';
 import '@splidejs/react-splide/css';
 import { NavBar, QuienesSomos, NuestraExperiencia, NuestrosServicios, 
@@ -33,8 +32,9 @@ const formularioCamposValidaciones = {
 }
 
 export const LandingPage = () => {
-  const env = getEnvVariables();
-  console.log(env.GOOGLE_KAPCHA_TOKEN);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   //hook para usar api
   const { subirMensaje, mensajeError, mensajeExito, estado } = useFormularioApi();
 
@@ -51,6 +51,12 @@ export const LandingPage = () => {
     formState,
     onResetForm
   } = useForm(formularioCampos, formularioCamposValidaciones);
+
+  const recaptchaRef = useRef(null);
+
+  useEffect(() => {
+    recaptchaRef.current.reset();
+  }, []);
 
   //datos para recaptcha
   const [captchaToken, setCaptchaToken] = useState('');
@@ -73,7 +79,7 @@ export const LandingPage = () => {
 
     if (!isFormValid) return;
 
-    subirMensaje(formState);
+    subirMensaje(formState, captchaToken);
 
     onResetForm();
 
@@ -222,6 +228,7 @@ export const LandingPage = () => {
                         multiline
                         rows={2}
                         variant='outlined'
+                        required
                         sx={inputStyle}
                         inputProps={{
                           maxLength: 150
@@ -229,9 +236,11 @@ export const LandingPage = () => {
                       />
 
                       <ReCAPTCHA
-                        sitekey={ env.GOOGLE_KAPCHA_TOKEN }
+                        ref={recaptchaRef}
+                        sitekey={'6LfvmJYlAAAAAEgjsONXL6v4t_-e1XDfCgtlm9ji'}
                         onChange={onChangeCaptcha}
                         style={{paddingTop: '14px', paddingLeft:'26px', height: '95px'}}
+                        size='normal'
                       />
                       
                       <Button

@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
-import { NavBar } from '../../landing/components';
+import { NavBar } from '../components';
 import '../style/BlogSeccionStyle.css';
 import { ContainerBlogs } from '../components/';
 
 export const BlogSeccion = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

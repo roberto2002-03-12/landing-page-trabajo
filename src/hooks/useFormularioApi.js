@@ -8,7 +8,7 @@ export const useFormularioApi = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const subirFormularioReclamo = async (formulario, documento) => {
+    const subirFormularioReclamo = async (formulario, documento, tokenCaptcha) => {
         dispatch(onChecking());
         let newFormulario = {
             ...formulario
@@ -35,6 +35,7 @@ export const useFormularioApi = () => {
             formData.append('detalleDelProducto', newFormulario.detalleDelProducto);
             formData.append('detalleDelReclamo', newFormulario.detalleDelReclamo);
             formData.append('autorizoActo', newFormulario.autorizoActo);
+            formData.append('captchaToken', tokenCaptcha);
 
             await landingPageApi.post('/formulario-reclamo', formData, {
                 headers: {
@@ -44,6 +45,9 @@ export const useFormularioApi = () => {
 
             dispatch(onSubmit('Formulario súbido exitosamente'));
             navigate('/');
+            setTimeout(() => {
+                dispatch(clearErrorMessage());
+            }, 10);
         } catch (err) {
             dispatch(onError('Error en subir el formulario, intente de nuevo'));
             setTimeout(() => {
@@ -52,11 +56,18 @@ export const useFormularioApi = () => {
         };
     };
 
-    const subirMensaje = async (mensaje) => {
+    const subirMensaje = async (mensaje, tokenCaptcha) => {
         dispatch(onChecking());
+        const newMessage = {
+            ...mensaje,
+            captchaToken: tokenCaptcha
+        }
         try {
-            await landingPageApi.post('/mensajes', mensaje);
+            await landingPageApi.post('/mensajes', newMessage);
             dispatch(onSubmit('Se ha enviado el mensaje'));
+            setTimeout(() => {
+                dispatch(clearErrorMessage());
+            }, 10);
         } catch (err) {
             dispatch(onError('Hubo un error al enviar el mensaje'));
             setTimeout(() => {

@@ -5,6 +5,10 @@ import { Cargando } from '../../components';
 import { NavBar } from '../components';
 
 export const VerReclamo = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { seleccionarReclamo, borrarReclamo, isLoadingClaim, claim } = useReclamoApi();
 
   const { id } = useParams();

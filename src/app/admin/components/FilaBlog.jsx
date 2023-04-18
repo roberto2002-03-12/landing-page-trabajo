@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { onSetActiveBlog } from '../../../store';
 import { useBlogApi } from '../../../hooks';
+import { transformDateFormat } from '../../../helpers';
 
 export const FilaBlog = memo(({props}) => {
   const { eliminarBlog } = useBlogApi();
@@ -28,7 +29,7 @@ export const FilaBlog = memo(({props}) => {
       <td>{props.idblog}</td>
       <td>{props.titulo.length > 45 ? `${props.titulo.slice(0, 45)}...` : props.titulo }</td>
       <td>{props.categoria.nombre}</td>
-      <td>{props.createdAt}</td>
+      <td>{ transformDateFormat(props.createdAt) }</td>
       <td>
         <div className="dropdown">
           <button className="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

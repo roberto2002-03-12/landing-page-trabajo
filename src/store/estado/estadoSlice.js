@@ -23,7 +23,8 @@ export const estadoSlice = createSlice({
             state.mensajeExito = undefined;
         },
         clearErrorMessage: (state) => {
-            state.errorMessage = undefined;
+            state.mensajeExito = undefined;
+            state.mensajeError = undefined;
         }
     }
 });

@@ -26,6 +26,9 @@ const style = {
 }
 
 export const CrearBlog = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   //react redux
   const { statusSubmitBlog, mensajeErrorBlog, mensajeExitoBlog } = useSelector(state => state.blog);
   //Hooks apis

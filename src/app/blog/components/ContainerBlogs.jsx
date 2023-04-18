@@ -36,7 +36,7 @@ export const ContainerBlogs = () => {
     return (
         <div className='container container-blog-list'>
             <div className="row">
-                <div className="col-xl-3">
+                <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12">
                     <div className='aside-blog-content'>
                         <div className="aside-blog-category">
                             <div className="blog-list-category">
@@ -76,7 +76,7 @@ export const ContainerBlogs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-xl-9 col-lg-9 col-md-10 col-sm-12 col-12">
+                <div className="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">
                     {
                         blogs.map((blg) => (
                             <CardsBlogs props={blg} key={blg.idblog}/>

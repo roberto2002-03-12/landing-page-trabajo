@@ -1,7 +1,7 @@
 import React from 'react';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import { Button } from '@mui/material';
-import { transformDateFormat } from '../helpers/transformDateFormat';
+import { transformDateFormat } from '../../../helpers';
 
 export const CardsBlogs = ({props}) => {
   return (
@@ -23,7 +23,8 @@ export const CardsBlogs = ({props}) => {
             variant='contained'
             sx={{
               marginRight: '15px',
-              marginBottom: '10px'
+              marginBottom: '10px',
+              borderRadius: '20px'
             }}
           >
             <a href={props.urlBlog} target='_blank'

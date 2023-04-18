@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useMessageApi } from '../../../hooks';
+import { transformDateFormat } from '../../../helpers';
 
 export const FilaMensaje = memo(({props}) => {
     const { activarMensaje } = useMessageApi();
@@ -13,7 +14,7 @@ export const FilaMensaje = memo(({props}) => {
             <td>{ props.idmensaje }</td>
             <td>{ props.nombreCompleto.length > 30 ? `${props.nombreCompleto.slice(0, 30)}...` : props.nombreCompleto }</td>
             <td>{ props.numeroCelular }</td>
-            <td>{ props.createdAt }</td>
+            <td>{ transformDateFormat(props.createdAt) }</td>
             <td>
                 <div className="dropdown">
                     <button className="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

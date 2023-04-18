@@ -6,6 +6,10 @@ import { Cargando } from '../../components';
 import '../styles/ListaBlogStyle.css';
 
 export const VerBlog = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { seleccionarBlog, borrarBlog, isLoadingBlog, blog } = useBlogApi();
 
   const { id } = useParams();
