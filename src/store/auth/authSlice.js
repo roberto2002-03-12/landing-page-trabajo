@@ -36,6 +36,7 @@ export const authSlice = createSlice({
         },
         clearErrorMessageAuth: (state) => {
             state.mensajeErrorAuth = undefined;
+            state.mensajeExitoAuth = undefined;
         },
         onRegister: (state, {payload}) => {
             state.estadoAuth = 'not-authenticated',
@@ -59,6 +60,11 @@ export const authSlice = createSlice({
         },
         clearErrorMessageEmail: (state) => {
             state.mensajeErrorEmail = undefined;
+            state.mensajeExitoEmail = undefined;
+        },
+        clearEmailSend: (state) => {
+            state.mensajeExitoEmail = undefined;
+            state.estadoEmail = 'no-enviado';
         }
     }
 });
@@ -73,5 +79,6 @@ export const {
     onSubmitEmail,
     onCheckingEmail,
     onErrorEmail,
-    clearErrorMessageEmail
+    clearErrorMessageEmail,
+    clearEmailSend
 } = authSlice.actions;

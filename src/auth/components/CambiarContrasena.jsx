@@ -40,7 +40,11 @@ export const CambiarContrasena = () => {
 
     setFormSubmited(true);
 
-    if (!isFormValid) return;
+    if (!isFormValid) {
+      Swal.fire('Datos invalidos', 'La contraseña debe tener un minimo de 8 caracteres y el token debe ser valido con una longitud de 70 caracteres', 'error');
+      setFormSubmited(false);
+      return;
+    };
 
     recuperacionCuenta(formState);
     setFormSubmited(false);

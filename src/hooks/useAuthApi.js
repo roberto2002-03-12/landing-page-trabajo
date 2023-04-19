@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { clearErrorMessageAuth, onCheckingAuth, 
          onLoggin, onRegister, onLogout, onLogoutUser,
         
-         onSubmitEmail, onCheckingEmail, onErrorEmail, clearErrorMessageEmail} from '../store'
+         onSubmitEmail, onCheckingEmail, onErrorEmail, clearErrorMessageEmail, clearEmailSend } from '../store'
 import Swal from 'sweetalert2';
 
 export const useAuthApi = () => {
@@ -50,6 +50,9 @@ export const useAuthApi = () => {
         try {
             await landingPageApi.post('/auth/registrarse', newFormulario);
             dispatch(onRegister('Registrado correctamente'));
+            setTimeout(() => {
+                dispatch(clearErrorMessageAuth());
+            }, 10);
         } catch (err) {
             dispatch(onLogout(err.response?.data?.message));
             setTimeout(() => {
@@ -63,6 +66,9 @@ export const useAuthApi = () => {
         try {
             await landingPageApi.post('/auth/recuperacion-contrasena', email);
             dispatch(onSubmitEmail('Se envío el código a su correo'));
+            setTimeout(() => {
+                dispatch(clearEmailSend());
+            }, 10);
         } catch (err) {
             dispatch(onErrorEmail(err.response?.data?.message || '---'));
             setTimeout(() => {
@@ -80,6 +86,9 @@ export const useAuthApi = () => {
             await landingPageApi.post('/auth/cambiar-contrasena', newObj);
             Swal.fire('Contraseña cambiada', 'su contraseña a sido cambiada, ya puede loguearse nuevamente', 'success');
             navigate('/login');
+            setTimeout(() => {
+                dispatch(clearErrorMessageAuth());
+            }, 10);
         } catch (err) {
             Swal.fire('No se pudo cambiar', err.response?.data?.message, 'error');
         };

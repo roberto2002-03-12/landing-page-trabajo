@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useState } from 'react';
+import { useLayoutEffect, useMemo, useState, useEffect } from 'react';
 import { useForm, useCategoriaApi, useBlogApi } from '../../../hooks';
 import { NavBar } from '../components';
 import { Cargando } from '../../components';
