@@ -1,7 +1,9 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import UnpublishedOutlinedIcon from '@mui/icons-material/UnpublishedOutlined';
 import { Card, Button } from '@mui/material';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const buttonStyle = {
     borderColor: '#16194F',
@@ -18,6 +20,10 @@ const cardStyle = {
 }
 
 export const NuestrosPlanes = memo(() => {
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
     return (
         <section className="landing-section-5" id='landing-section-5'>
             <h4 className='section-5-title'>Nuestros planes</h4>
@@ -26,6 +32,8 @@ export const NuestrosPlanes = memo(() => {
                 <div className="section-5-card-container col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                     <Card
                         style={cardStyle}
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
                     >
                         <div className="section-5-card-title">
                             <h4>Básico</h4>
@@ -100,6 +108,8 @@ export const NuestrosPlanes = memo(() => {
                 <div className="section-5-card-container col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                     <Card
                         style={cardStyle}
+                        data-aos="fade-up"
+                        data-aos-duration="2000"
                     >
                         <div className="section-5-card-title">
                             <h4>Plús</h4>
@@ -174,6 +184,8 @@ export const NuestrosPlanes = memo(() => {
                 <div className="section-5-card-container col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                     <Card
                         style={cardStyle}
+                        data-aos="fade-left"
+                        data-aos-duration="3000"
                     >
                         <div className="section-5-card-title">
                             <h4>Premium</h4>

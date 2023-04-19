@@ -1,14 +1,23 @@
+import { useEffect, memo } from 'react'
 import { Grid } from "@mui/material";
 import DiplomaEjemplo from '../img/universidad.png';
-import { memo } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export const NuestraExperiencia = memo(() => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section className='landing-section-2'>
       <div className="container">
         <div className="row">
           <div className="section-2-text col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-            <div>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
               <h4>25 años en el rubro</h4>
               <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
             </div>
@@ -22,6 +31,8 @@ export const NuestraExperiencia = memo(() => {
               }}
               justifyContent="center"
               alignItems="center"
+              data-aos="fade-up"
+              data-aos-duration="1500"
             >
               <Grid item xs={12} xl={6} lg={6}>
                 <div className="section-2-note">

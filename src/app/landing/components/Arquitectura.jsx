@@ -1,12 +1,22 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import PuntoExample from '../img/punto.svg';
 import ArquitecturaImg from '../img/arquitectura.svg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export const Arquitectura = memo(() => {
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
   return (
     <section className="landing-section-6">
         <div className="row">
-            <div className="landing-arquitectura-info col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div 
+                className="landing-arquitectura-info col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
+                data-aos="zoom-in-down"
+                data-aos-duration="1000"
+            >
                 <div className="arq-info">
                     <h4>Arquitectura Tecnológica</h4>
                     <p>
@@ -54,7 +64,11 @@ export const Arquitectura = memo(() => {
                 </div>
             </div>
 
-            <div className="landing-arquitectura-img col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div 
+                className="landing-arquitectura-img col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
+                data-aos="zoom-in-up"
+                data-aos-duration="1000"
+            >
                 <img src={ArquitecturaImg} alt="" />
             </div>
         </div>

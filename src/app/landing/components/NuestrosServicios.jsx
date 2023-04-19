@@ -1,6 +1,8 @@
-import { Grid, Card } from '@mui/material';
+import { useEffect, memo } from 'react';
+import { Card } from '@mui/material';
 import StarImg from '../img/star.png';
-import { memo } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const style = {
     width: '180px',
@@ -10,6 +12,10 @@ const style = {
 }
 
 export const NuestrosServicios = memo(() => {
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
   return (
     <section className='landing-section-3' id='landing-section-3'>
         <div className="container">
@@ -21,6 +27,8 @@ export const NuestrosServicios = memo(() => {
                     <Card
                         className='section-3-card'
                         sx={style}
+                        data-aos="flip-left"
+                        data-aos-duration="1000"
                     >
                         <div className="section-3-card-img">
                             <img src={ StarImg } alt="" />
@@ -42,6 +50,8 @@ export const NuestrosServicios = memo(() => {
                     <Card
                         className='section-3-card'
                         sx={style}
+                        data-aos="flip-left"
+                        data-aos-duration="1000"
                     >
                         <div className="section-3-card-img">
                             <img src={ StarImg } alt="" />
@@ -61,6 +71,8 @@ export const NuestrosServicios = memo(() => {
                     <Card
                         className='section-3-card'
                         sx={style}
+                        data-aos="flip-right"
+                        data-aos-duration="1000"
                     >
                         <div className="section-3-card-img">
                             <img src={ StarImg } alt="" />
@@ -80,6 +92,8 @@ export const NuestrosServicios = memo(() => {
                     <Card
                         className='section-3-card'
                         sx={style}
+                        data-aos="flip-right"
+                        data-aos-duration="1000"
                     >
                         <div className="section-3-card-img">
                             <img src={ StarImg } alt="" />
