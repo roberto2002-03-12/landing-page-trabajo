@@ -1,12 +1,16 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import PuntoExample from '../img/punto.svg';
 import ArquitecturaImg from '../img/arquitectura.svg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export const Arquitectura = memo(() => {
+    const [isWideScreen, setIsWideScreen] = useState(false);
+
     useEffect(() => {
         AOS.init();
+        const mediaQuery = window.matchMedia("(min-width: 991px)");
+        setIsWideScreen(mediaQuery.matches);
     }, []);
 
   return (
@@ -14,7 +18,7 @@ export const Arquitectura = memo(() => {
         <div className="row">
             <div 
                 className="landing-arquitectura-info col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
-                data-aos="zoom-in-down"
+                data-aos={isWideScreen ? 'zoom-in-down' : '' }
                 data-aos-duration="1000"
             >
                 <div className="arq-info">
@@ -66,7 +70,7 @@ export const Arquitectura = memo(() => {
 
             <div 
                 className="landing-arquitectura-img col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
-                data-aos="zoom-in-up"
+                data-aos={isWideScreen ? 'zoom-in-up' : '' }
                 data-aos-duration="1000"
             >
                 <img src={ArquitecturaImg} alt="" />

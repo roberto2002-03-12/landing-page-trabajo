@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import UnpublishedOutlinedIcon from '@mui/icons-material/UnpublishedOutlined';
 import { Card, Button } from '@mui/material';
@@ -20,8 +20,12 @@ const cardStyle = {
 }
 
 export const NuestrosPlanes = memo(() => {
+    const [isWideScreen, setIsWideScreen] = useState(false);
+
     useEffect(() => {
         AOS.init();
+        const mediaQuery = window.matchMedia("(min-width: 991px)");
+        setIsWideScreen(mediaQuery.matches);
     }, []);
 
     return (
@@ -32,7 +36,7 @@ export const NuestrosPlanes = memo(() => {
                 <div className="section-5-card-container col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                     <Card
                         style={cardStyle}
-                        data-aos="fade-right"
+                        data-aos={isWideScreen ? "fade-right" : ''}
                         data-aos-duration="1000"
                     >
                         <div className="section-5-card-title">
@@ -108,7 +112,7 @@ export const NuestrosPlanes = memo(() => {
                 <div className="section-5-card-container col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                     <Card
                         style={cardStyle}
-                        data-aos="fade-up"
+                        data-aos={isWideScreen ? "fade-up" : ''}
                         data-aos-duration="2000"
                     >
                         <div className="section-5-card-title">
@@ -184,7 +188,7 @@ export const NuestrosPlanes = memo(() => {
                 <div className="section-5-card-container col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                     <Card
                         style={cardStyle}
-                        data-aos="fade-left"
+                        data-aos={isWideScreen ? "fade-left" : ''}
                         data-aos-duration="3000"
                     >
                         <div className="section-5-card-title">

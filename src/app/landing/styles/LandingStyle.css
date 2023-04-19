@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -866,6 +870,11 @@
         display: none;
     }
 
+    .landing-arquitectura-img [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
     /*Beneficios*/
     .landing-section-7 {
         height: auto;
@@ -943,6 +952,10 @@
 
 /*Lado responsive Celular*/
 @media (max-width: 600px) {
+    body {
+        overflow-x: hidden;
+    }
+
     .landing-header-form h5 {
         padding-top: 25px;
         color: #747474;
@@ -1049,6 +1062,11 @@
 
     .landing-arquitectura-img {
         display: none;
+    }
+
+    .landing-arquitectura-img [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     /*Beneficios*/

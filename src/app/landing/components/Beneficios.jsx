@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import AdobeImg from '../img/adobe.svg';
 import ComprasImg from '../img/compras.svg';
 import CPEImg from '../img/cpe.svg';
@@ -9,15 +9,19 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export const Beneficios = memo(() => {
+  const [isWideScreen, setIsWideScreen] = useState(false);
+
   useEffect(() => {
     AOS.init();
+    const mediaQuery = window.matchMedia("(min-width: 991px)");
+    setIsWideScreen(mediaQuery.matches);
   }, []);
 
   return (
     <section className='landing-section-7'>
       <div 
         className="row"
-        data-aos="zoom-out-up"
+        data-aos={isWideScreen ? "zoom-out-up" : ''}
         data-aos-duration="1000"
       >
         <h4>Beneficios</h4>
