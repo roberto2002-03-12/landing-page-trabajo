@@ -164,16 +164,19 @@ export const LandingPage = () => {
 
             </div>
             <div className="landing-header-form col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-              <Card
-                variant='outlined'
-                sx={{
-                  width: '400px',
-                  height: formSubmited && (nombreCompletoValid || numeroCelularValid) ? '580px' : '530px',
+              <div
+                style={{
+                  height: '400px',
+                  minHeight: '530px',
+                  maxHeight: '580px',
                   borderRadius: '20px',
                   textAlign: 'center',
-                  '@media (max-width: 600px)': {
+                  maxWidth: '400px',
+                  '@media (maxWidth: 600px)': {
                     width: '350px'
-                  }
+                  },
+                  backgroundColor: 'white',
+                  margin: '0 auto'
                 }}
               >
                 <h5>¡Contactanos!</h5>
@@ -234,15 +237,19 @@ export const LandingPage = () => {
                           maxLength: 150
                         }}
                       />
-
-                      <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey={'6LfvmJYlAAAAAEgjsONXL6v4t_-e1XDfCgtlm9ji'}
-                        onChange={onChangeCaptcha}
-                        style={{paddingTop: '14px', paddingLeft:'26px', height: '95px'}}
-                        size='normal'
-                      />
-                      
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}>
+                        <ReCAPTCHA
+                          ref={recaptchaRef}
+                          sitekey={'6LfvmJYlAAAAAEgjsONXL6v4t_-e1XDfCgtlm9ji'}
+                          onChange={onChangeCaptcha}
+                          style={{paddingTop: '14px'}}
+                          size='normal'
+                        />
+                      </div>
                       <Button
                         variant='contained'
                         sx={{
@@ -261,7 +268,7 @@ export const LandingPage = () => {
                   )
                   )
                 }
-              </Card>
+              </div>
             </div>
           </div>
         </div>

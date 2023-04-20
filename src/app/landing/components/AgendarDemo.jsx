@@ -27,7 +27,7 @@ export const AgendarDemo = memo(() => {
                 </div>
             </div>
             <div className="agendar-demo-2 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                <img src={AgendarImg} alt="" />
+                <img src={AgendarImg} alt=""/>
             </div>
         </div>
     </section>

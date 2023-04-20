@@ -4,7 +4,7 @@ import ScrollIntoView from 'react-scroll-into-view';
 
 export const NavBar = ({ isScrolled }) => {
     return (//navbar navbar-landing navbar-expand-lg bg-dark fixed-top
-        <nav className={`navbar navbar-landing-a navbar-expand-lg ${isScrolled ? 'navbar-landing': ''} fixed-top`}>
+        <nav className={`navbar navbar-landing-a navbar-expand-lg navbar-landing fixed-top`}>
             <div className="container-fluid">
                 <Link className="navbar-brand" to='/'>DYF</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
