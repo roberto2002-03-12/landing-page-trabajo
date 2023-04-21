@@ -23,9 +23,8 @@ export const NuestrosPlanes = memo(() => {
     const [isWideScreen, setIsWideScreen] = useState(false);
 
     useEffect(() => {
-        AOS.init();
-
-        const mediaQuery = window.matchMedia("(min-width: 768px)");
+        AOS.init({ offset: -100 });
+        const mediaQuery = window.matchMedia("(min-width: 991px)");
         setIsWideScreen(mediaQuery.matches);
     }, []);
 

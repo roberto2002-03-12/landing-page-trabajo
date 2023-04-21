@@ -12,8 +12,7 @@ export const Beneficios = memo(() => {
   const [isWideScreen, setIsWideScreen] = useState(false);
 
   useEffect(() => {
-    AOS.init();
-
+    AOS.init({ offset: -100 });
     const mediaQuery = window.matchMedia("(min-width: 991px)");
     setIsWideScreen(mediaQuery.matches);
   }, []);
@@ -22,7 +21,7 @@ export const Beneficios = memo(() => {
     <section className='landing-section-7'>
       <div 
         className="row"
-        data-aos={ isWideScreen ? 'zoom-out-up' : '' }
+        data-aos={isWideScreen ? "zoom-out-up" : ''}
         data-aos-duration="1000"
       >
         <h4>Beneficios</h4>

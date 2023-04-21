@@ -175,7 +175,6 @@ export const LandingPage = () => {
                   '@media (maxWidth: 600px)': {
                     width: '350px'
                   },
-                  backgroundColor: 'white',
                   margin: '0 auto'
                 }}
               >

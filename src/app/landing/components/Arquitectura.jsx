@@ -5,12 +5,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export const Arquitectura = memo(() => {
-    const [isWideScreen, setIsWideScreen] = useState(true);
+    const [isWideScreen, setIsWideScreen] = useState(false);
 
     useEffect(() => {
-        AOS.init();
-
-        
+        AOS.init({ offset: -100 });
+        const mediaQuery = window.matchMedia("(min-width: 991px)");
+        setIsWideScreen(mediaQuery.matches);
     }, []);
 
   return (
@@ -18,7 +18,7 @@ export const Arquitectura = memo(() => {
         <div className="row">
             <div 
                 className="landing-arquitectura-info col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
-                data-aos={ isWideScreen ? 'zoom-in-down' : '' }
+                data-aos={isWideScreen ? 'zoom-in-down' : '' }
                 data-aos-duration="1000"
             >
                 <div className="arq-info">
