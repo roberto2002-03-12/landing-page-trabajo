@@ -21,7 +21,7 @@ export const Beneficios = memo(() => {
     <section className='landing-section-7'>
       <div 
         className="row"
-        data-aos={isWideScreen ? "zoom-out-up" : ''}
+        data-aos={isWideScreen ? "zoom-in" : ''}
         data-aos-duration="1000"
       >
         <h4>Beneficios</h4>

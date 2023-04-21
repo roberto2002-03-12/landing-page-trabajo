@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import AgendarImg from '../img/agendar.svg';
+import AgendarImg from '../img/contactanos.svg';
 import { Button } from '@mui/material';
 
 export const AgendarDemo = memo(() => {
@@ -19,7 +19,10 @@ export const AgendarDemo = memo(() => {
                         sx={{
                             borderRadius: '15px',
                             fontSize: '18px',
-                            backgroundColor: '#16194F'
+                            backgroundColor: '#bd1c1c',
+                            '&:hover': {
+                                backgroundColor: '#af1d1d'
+                            },
                         }}
                     >
                         Contactar

@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import QuienesSomosImg from '../img/section-1.jpg';
+import QuienesSomosImg from '../img/nosotros_img.svg';
 
 export const QuienesSomos = memo(() => {
   return (
@@ -10,9 +10,7 @@ export const QuienesSomos = memo(() => {
                 <div className="section-1-texto col-xl-6 col-md-6 col-lg-6 col-sm-12 col-12">
                     <div>
                         <p>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
-                            Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500 
-                            archivos de texto.
+                            Invoice Fácil es una compañía parte de DYF Contadores y Abogados, enfocados en el lado de sistema, nuestro propósito viene en la atención, soporte y guía del usuario acerca de nuestro sistema de contabilidad y gestión de tienda.
                         </p>
                     </div>
                 </div>

@@ -145,14 +145,13 @@ export const LandingPage = () => {
                   variant='contained'
                   sx={{
                     borderRadius: '20px',
-                    backgroundColor: '#16194F',
+                    backgroundColor: '#f72121',
                     '&:hover': {
-                      backgroundColor: '#4D53C3'
+                      backgroundColor: '#af1d1d'
                     },
                     '@media (max-width: 768px)' : {
                       marginTop: '15px',
                       marginBottom: '30px',
-                      backgroundColor: '#F44E77',
                       textAlign: 'center',
 
                     }
@@ -257,6 +256,10 @@ export const LandingPage = () => {
                           width: '345px',
                           '@media (max-width: 991px)': {
                             width: '297.5px'
+                          },
+                          backgroundColor: '#f72121',
+                          '&:hover': {
+                            backgroundColor: '#af1d1d'
                           }
                         }}
                         type='submit'

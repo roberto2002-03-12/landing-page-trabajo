@@ -6,8 +6,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const buttonStyle = {
-    borderColor: '#16194F',
-    color: '#16194F',
+    borderColor: '#4f1616',
+    color: '#4f1616',
     borderRadius: '15px'
 }
 
@@ -15,7 +15,7 @@ const cardStyle = {
     width: '350px',
     height: '750px',
     backgroundColor: 'white',
-    boxShadow: '5px 8px #3E3B74',
+    boxShadow: '5px 8px #743b3b',
     borderRadius: '15px'
 }
 

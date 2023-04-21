@@ -9,15 +9,15 @@ body {
 
 .nav-link-custom {
     cursor: pointer;
-    color: white;
+    color: black;
 }
 
 .navbar-landing {
-    background-color: #f44e78;
+    background-color: #ffffff;
 }
 
 .navbar-landing-a a {
-    color: white;
+    color: black;
 }
 
 .landing-header {
@@ -39,17 +39,17 @@ body {
 */
 
 .landing-header-title h1 {
-    color: white;
+    color: black;
 }
 
 .landing-header-title p {
-    color: white;
+    color: black;
     font-size: 20px;
     text-align: justify;
 }
 
 .landing-header-content hr {
-    color: white;
+    color: black;
     border-width: 3px;
 }
 
@@ -83,14 +83,14 @@ body {
 }
 
 .landing-section-1 h4 {
-    color: #554DDE;
+    color: #de4d4d;
     text-align: center;
     padding-top: 200px;
     font-size: 40px;
 }
 
 .section-1-texto p {
-    color: #6A6D9E;
+    color: #000000;
     text-align: justify;
     font-size: 20px;
     padding-top: 20px;
@@ -132,12 +132,12 @@ body {
 
 .section-2-note p {
     font-size: 15px;
-    color: #6A6D9E;
+    color: #000000;
 }
 
 .section-2-note h5 {
     font-size: 15px;
-    color: #6A6D9E;
+    color: #de4d4d;
     font-weight: bold;
 }
 
@@ -162,12 +162,12 @@ body {
 .section-2-text h4 {
     font-size: 50px;
     font-weight: bold;
-    color: #554DDE;
+    color: #de4d4d;
 }
 
 .section-2-text p {
     font-size: 20px;
-    color: #6A6D9E;
+    color: #000000;
 }
 
 .section-2-text {
@@ -195,36 +195,38 @@ body {
     align-items: center;
 }
 
-.section-3-card {
-    background-color: #554DDE;
-}
-
 .section-3-card-text p {
     font-size: 15px;
     text-align: justify;
-    color: white;
+    color: rgb(114, 114, 114);
     padding: 5px;
 }
 
 .section-3-card-text h4 {
     font-size: 18px;
+    font-weight: bold;
     text-align: center;
     padding-top: 10px;
-    color: white;
+    color: rgb(112, 112, 112);
 }
 
 .section-3-card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 150px;
     text-align: center;
 }
 
 .section-3-card-img img {
-    width: 150px;
-    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .section-3-title {
     font-size: 40px;
-    color: #554DDE;
+    color: #de4d4d;
     padding-bottom: 30px;
 }
 
@@ -232,7 +234,7 @@ body {
 .section-4-h4 {
     text-align: center;
     padding-top: 100px;
-    color: #554DDE;
+    color: #de4d4d;
     font-size: 40px;
 }
 
@@ -252,7 +254,7 @@ body {
 }
 
 .landing-section-5 {
-    background-color: #554DDE;
+    background-color: #ff3b3b;
     height: 1000px;
     width: 100%;
 }
@@ -345,7 +347,7 @@ body {
 
 .arq-info h4 {
     font-size: 40px;
-    color: #554DDE;
+    color: #de4d4d;
     text-align: center;
     padding-bottom: 25px;
 }
@@ -353,7 +355,7 @@ body {
 .arq-info p {
     font-size: 20px;
     text-align: justify;
-    color: #6A6D9E;
+    color: #000000;
 }
 
 .arq-info-puntos {
@@ -374,7 +376,7 @@ body {
 
 .arq-text p {
     font-size: 20px;
-    color: #6A6D9E;
+    color: #000000;
     text-align: justify;
     padding: 0;
     margin: 0;
@@ -383,7 +385,7 @@ body {
 .arq-text h5 {
     font-size: 20px;
     font-weight: bold;
-    color: #6A6D9E;
+    color: #de4d4d;
     text-align: left;
     padding: 0;
     margin: 0;
@@ -416,7 +418,7 @@ body {
 
 .landing-box-beneficio-text h5 {
     font-size: 18px;
-    color: #6A6D9E;
+    color: #de4d4d;
     font-weight: bold;
     padding: 0;
     margin: 0;
@@ -424,7 +426,7 @@ body {
 
 .landing-box-beneficio-text p {
     font-size: 14px;
-    color: #6A6D9E;
+    color: #000000;
     padding: 0;
     margin: 0;
 }
@@ -445,7 +447,7 @@ body {
 
 .landing-section-7 .row h4 {
     font-size: 40px;
-    color: #554DDE;
+    color: #de4d4d;
     font-weight: bold;
     text-align: center;
 }
@@ -469,7 +471,7 @@ body {
     text-align: center;
     font-size: 40px;
     font-weight: bold;
-    color: #554DDE;
+    color: #de4d4d;
     padding-bottom: 50px;
 }
 
@@ -482,7 +484,7 @@ body {
 .agendar-demo-1 div p {
     padding-top: 20px;
     font-size: 22px;
-    color: #6A6D9E;
+    color: #000000;
     text-align: justify;
 }
 
@@ -490,6 +492,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.agendar-demo-2 img {
+    width: 325px;
+    height: 325px;
 }
 
 /*Metodos de pago*/
@@ -515,13 +522,13 @@ body {
 
 .metodos-pagos-1 p {
     font-size: 22px;
-    color: #6A6D9E;
+    color: #000000;
     text-align: justify;
 }
 
 .metodos-pagos-1 h5 {
     font-size: 40px;
-    color: #554DDE;
+    color: #de4d4d;
     text-align: justify;
 }
 
@@ -544,7 +551,7 @@ body {
 
 /*blog*/
 .landing-section-10 {
-    background-color: #554DDE;
+    background-color: #ff3b3b;
     width: 100%;
     height: 350px;
 }
@@ -660,7 +667,6 @@ body {
 
     /*Nuestros planes*/
     .landing-section-5 {
-        background-color: #554DDE;
         height: auto;
         width: 100%;
     }
@@ -840,7 +846,6 @@ body {
 
     /*Nuestros planes*/
     .landing-section-5 {
-        background-color: #554DDE;
         height: auto;
         width: 100%;
     }
@@ -972,7 +977,6 @@ body {
 
     .landing-header-form h5 {
         padding-top: 25px;
-        color: #747474;
         font-weight: bold;
         font-size: 22px;
     }
@@ -983,7 +987,6 @@ body {
     }
     
     .header-form-text p {
-        color: #747474;
         font-size: 18px;
     }
 
@@ -1034,7 +1037,6 @@ body {
 
     /*Nuestros planes*/
     .landing-section-5 {
-        background-color: #554DDE;
         height: auto;
         width: 100%;
     }

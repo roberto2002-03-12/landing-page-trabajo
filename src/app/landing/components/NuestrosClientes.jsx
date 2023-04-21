@@ -1,21 +1,21 @@
 import { memo } from 'react';
 //import "react-responsive-carousel/lib/styles/carousel.min.css";
-import ImageExample from '../img/150x150.png';
 //import { Carousel } from 'react-responsive-carousel';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 //imagenes
-import AmazonExample from '../img/amazon.jpg';
-import FacebookExample from '../img/facebook-logo.png';
-import CloudinaryExample from '../img/Cloudinary-Logo.png';
-import AppleExample from '../img/apple.jpg';
-import SpotifyExample from '../img/spotify.png';
-import PlatziExample from '../img/platzi.png';
-import AmazonPrimerExample from '../img/amazonprime.jpg';
-import DigitalOceanExample from '../img/digitalocean.png';
-import HostingerExample from '../img/hostinger.jpg';
-import UdemyExample from '../img/udemy-logo-letra-150x150.jpg';
-import LyricalLemonadeExample from '../img/lyrical_lemonade.png';
-import TeslaExample from '../img/tesla.png';
+import Chino1Img from '../img/slider2.png';
+import Chino2Img from '../img/slider3.png';
+import Chino3Img from '../img/slider4.png';
+import Chino4Img from '../img/slider5.png';
+import Chino5Img from '../img/slider6b.png';
+import Chino6Img from '../img/slider7.png';
+import Chino7Img from '../img/slider8b.png';
+import Chino8Img from '../img/slider9b.png';
+import Chino9Img from '../img/slider10.png';
+import Chino10Img from '../img/slider11b.png';
+import Chino11Img from '../img/slider13.png';
+import Chino12Img from '../img/slider14.png';
+
 
 const options = {
     perPage: 6,
@@ -61,41 +61,41 @@ export const NuestrosClientes = memo(() => {
                     options={options}
                 >
                     <SplideSlide>
-                        <img src={AmazonExample} alt="Ejemplo"/>
+                        <img src={Chino1Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={FacebookExample} alt="Ejemplo"/>
+                        <img src={Chino2Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={CloudinaryExample} alt="Ejemplo"/>
+                        <img src={Chino3Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={AppleExample} alt="Ejemplo"/>
+                        <img src={Chino4Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={SpotifyExample} alt="Ejemplo"/>
+                        <img src={Chino5Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={PlatziExample} alt="Ejemplo"/>
+                        <img src={Chino6Img} alt="Ejemplo"/>
                     </SplideSlide>
                     {/*Seccion 2*/}
                     <SplideSlide>
-                        <img src={AmazonPrimerExample} alt="Ejemplo"/>
+                        <img src={Chino7Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={DigitalOceanExample} alt="Ejemplo"/>
+                        <img src={Chino8Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={HostingerExample} alt="Ejemplo"/>
+                        <img src={Chino9Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={UdemyExample} alt="Ejemplo"/>
+                        <img src={Chino10Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={LyricalLemonadeExample} alt="Ejemplo"/>
+                        <img src={Chino11Img} alt="Ejemplo"/>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src={TeslaExample} alt="Ejemplo"/>
+                        <img src={Chino12Img} alt="Ejemplo"/>
                     </SplideSlide>
                 </Splide>
             </div>

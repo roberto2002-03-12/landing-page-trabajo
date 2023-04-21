@@ -1,13 +1,16 @@
 import { useEffect, memo } from 'react';
 import { Card } from '@mui/material';
-import StarImg from '../img/star.png';
+import ideasImg from '../img/ideas_disruptivas.svg';
+import modeloImg from '../img/modelo_negocio.svg';
+import mpvImg from '../img/MPV.svg';
+import evolucionImg from '../img/evolucion.svg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const style = {
     width: '180px',
     height: '362px',
-    backgroundColor: '#554DDE',
+    backgroundColor: '#f1f1f1',
     boxShadow: '3px 5px #BABABA'
 }
 
@@ -31,7 +34,7 @@ export const NuestrosServicios = memo(() => {
                         data-aos-duration="1000"
                     >
                         <div className="section-3-card-img">
-                            <img src={ StarImg } alt="" />
+                            <img src={ ideasImg } alt="" />
                         </div>
                         <div className="section-3-card-text">
                             <h4>
@@ -54,7 +57,7 @@ export const NuestrosServicios = memo(() => {
                         data-aos-duration="1000"
                     >
                         <div className="section-3-card-img">
-                            <img src={ StarImg } alt="" />
+                            <img src={ modeloImg } alt="" />
                         </div>
                         <div className="section-3-card-text">
                             <h4>
@@ -75,7 +78,7 @@ export const NuestrosServicios = memo(() => {
                         data-aos-duration="1000"
                     >
                         <div className="section-3-card-img">
-                            <img src={ StarImg } alt="" />
+                            <img src={ mpvImg } alt="" />
                         </div>
                         <div className="section-3-card-text">
                             <h4>
@@ -96,7 +99,7 @@ export const NuestrosServicios = memo(() => {
                         data-aos-duration="1000"
                     >
                         <div className="section-3-card-img">
-                            <img src={ StarImg } alt="" />
+                            <img src={ evolucionImg } alt="" />
                         </div>
                         <div className="section-3-card-text">
                             <h4>

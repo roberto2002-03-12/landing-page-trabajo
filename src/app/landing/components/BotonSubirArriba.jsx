@@ -9,7 +9,10 @@ export const BotonSubirArriba = memo(() => {
             <Button
                 variant='contained'
                 sx={{
-                    backgroundColor: '#F44E77',
+                    backgroundColor: '#f44e4e',
+                    '&:hover': {
+                        backgroundColor: '#af1d1d'
+                    },
                     borderRadius: '50%',
                     position: 'fixed',
                     width: '60px',

@@ -39,11 +39,10 @@ export const Footer = memo(() => {
                 <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
                     <h6 className='text-uppercase fw-bold mb-4'>
                     <MDBIcon color='secondary' icon='gem' />
-                    DYF Contadores y abogados
+                        Invoice Fácil
                     </h6>
                     <p>
-                        Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                        amet, consectetur adipisicing elit.
+                        Somos parte de DYF Contadores y Abogados, nos encargamos en las partes de sistemas
                     </p>
                 </MDBCol>
     
@@ -91,7 +90,7 @@ export const Footer = memo(() => {
                 </MDBCol>
     
                 <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4'>
-                    <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+                    <h6 className='text-uppercase fw-bold mb-4'>Contacto</h6>
                     <p>
                     <HomeIcon className='me-3' />
                     Calle las Camelias 657, San Isidro 15046
@@ -102,7 +101,7 @@ export const Footer = memo(() => {
                     </p>
                     <p>
                     <CallIcon className='me-3'/>
-                    +51 01 221 4686
+                    +01 221 4686
                     </p>
                 </MDBCol>
                 </MDBRow>
@@ -110,7 +109,7 @@ export const Footer = memo(() => {
             </section>
     
             <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-            © 2023 Copyright: 
+            © 2023 Copyright: {' '}
             <a className='text-reset fw-bold' href='https://contadoresabogados.com.pe/'>
                 contadoresabogados.com.pe
             </a>
