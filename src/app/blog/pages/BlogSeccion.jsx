@@ -29,7 +29,7 @@ export const BlogSeccion = () => {
     <>
       <NavBar isScrolled={isScrolled}/>
       <header className='blog-header'>
-        <h2 className='blog-header-title' id='encabezado-blog-title'>Blogs de DYF</h2>
+        <h2 className='blog-header-title' id='encabezado-blog-title'>Blogs de Invoice Fácil</h2>
         <p className='blog-header-text'>Mantente al tanto de nuestros blogs para guías y datos curiosos.</p>
       </header>
       <ContainerBlogs />

@@ -6,7 +6,7 @@ export const NavBar = ({ isScrolled }) => {
     return (//navbar navbar-landing navbar-expand-lg bg-dark fixed-top
         <nav className={`navbar navbar-landing-a navbar-expand-lg ${isScrolled ? 'navbar-landing' : ''} fixed-top`}>
             <div className="container-fluid">
-                <Link className="navbar-brand" to='/'>DYF</Link>
+                <Link className="navbar-brand" to='/'>Invoice Fácil</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -16,7 +16,7 @@ export const NavBar = ({ isScrolled }) => {
                             <a className="nav-link nav-link-custom">¿Quienes somos?</a>
                         </ScrollIntoView>
                         <ScrollIntoView selector='#landing-section-3'>
-                            <a className="nav-link nav-link-custom">Nuestros servicios</a>
+                            <a className="nav-link nav-link-custom">Nuestros procesos</a>
                         </ScrollIntoView>
                         <ScrollIntoView selector='#landing-section-5'>
                             <a className="nav-link nav-link-custom">Planes</a>

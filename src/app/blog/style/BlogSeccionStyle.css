@@ -10,11 +10,11 @@
 }
 
 .blog-header-title {
-    color: white;
+    color: black;
 }
 
 .blog-header-text {
-    color: white
+    color: black
 }
 
 @media (max-width: 600px) {

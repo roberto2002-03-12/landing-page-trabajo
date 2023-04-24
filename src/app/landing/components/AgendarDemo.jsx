@@ -10,9 +10,7 @@ export const AgendarDemo = memo(() => {
             <div className="agendar-demo-1 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div>
                     <p>
-                        Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos 
-                        de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias 
-                        desde el año 1500 archivos de texto.
+                    ¿Quieres ver nuestro software en acción? ¡Envíanos un mensaje para una demostración hoy mismo! Uno de nuestros expertos estará encantado de guiarte a través de nuestro software y responder a cualquier pregunta que tengas.
                     </p>
                     <Button
                         variant='contained'
