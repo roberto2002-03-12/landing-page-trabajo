@@ -157,7 +157,7 @@ export const LandingPage = () => {
                     }
                   }}
                 >
-                  Contactanos
+                  <a href="https://wa.link/6en89b" target='_blank' style={{color: 'white', textDecoration: 'none'}}>Contactanos</a>
                 </Button>
               </div>
 

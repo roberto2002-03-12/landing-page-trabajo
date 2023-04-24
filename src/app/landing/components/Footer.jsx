@@ -18,16 +18,13 @@ export const Footer = memo(() => {
             </div>
     
             <div>
-                <a href='' className='me-4 text-reset'>
-                <FacebookIcon />
+                <a href='https://www.facebook.com/invoicefacilperu/' className='me-4 text-reset' target='_blank'>
+                    <FacebookIcon />
                 </a>
-                <a href='' className='me-4 text-reset'>
-                <LinkedInIcon />
-                </a>
-                <a href='' className='me-4 text-reset'>
+                <a href='https://www.instagram.com/invoicefacilperu/' className='me-4 text-reset' target='_blank'>
                 <InstagramIcon />
                 </a>
-                <a href='' className='me-4 text-reset'>
+                <a href='https://www.youtube.com/@invoicefacil910' className='me-4 text-reset' target='_blank'>
                 <YouTubeIcon />
                 </a>
             </div>
@@ -101,7 +98,7 @@ export const Footer = memo(() => {
                     </p>
                     <p>
                     <CallIcon className='me-3'/>
-                    +01 221 4686
+                    +51 941 116 005
                     </p>
                 </MDBCol>
                 </MDBRow>
@@ -110,8 +107,8 @@ export const Footer = memo(() => {
     
             <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
             © 2023 Copyright: {' '}
-            <a className='text-reset fw-bold' href='https://contadoresabogados.com.pe/'>
-                contadoresabogados.com.pe
+            <a className='text-reset fw-bold' href='#'>
+                pcweek.pe
             </a>
             </div>
         </MDBFooter>

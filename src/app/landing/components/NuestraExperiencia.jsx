@@ -21,7 +21,7 @@ export const NuestraExperiencia = memo(() => {
               data-aos="fade-up"
               data-aos-duration="1500"
             >
-              <h4>4 años en el rubro</h4>
+              <h4>4 años en el mercado</h4>
               <p>Llevamos sirviendo a cientos de compañías desde 2019</p>
             </div>
           </div>
@@ -60,8 +60,8 @@ export const NuestraExperiencia = memo(() => {
                     }}
                   />
                   <div className="section-2-note-text">
-                    <h5>ISO 27001</h5>
-                    <p>Garantía de seguridad con certificación ISO 27001</p>
+                    <h5>Sunat PSE</h5>
+                    <p>Contamos con el certificado PSE de sunat</p>
                   </div>
                 </div>
               </Grid>
@@ -74,8 +74,8 @@ export const NuestraExperiencia = memo(() => {
                     }}
                   />
                   <div className="section-2-note-text">
-                    <h5>ISO 27001</h5>
-                    <p>Garantía de seguridad con certificación ISO 27001</p>
+                    <h5>Experiencia en el sistema</h5>
+                    <p>Sabemos de contabilidad y sistemas</p>
                   </div>
                 </div>
               </Grid>
@@ -88,8 +88,8 @@ export const NuestraExperiencia = memo(() => {
                     }}
                   />
                   <div className="section-2-note-text">
-                    <h5>ISO 27001</h5>
-                    <p>Garantía de seguridad con certificación ISO 27001</p>
+                    <h5>Atención al cliente</h5>
+                    <p>Brindamos soporte y atención a los pedidos.</p>
                   </div>
                 </div>
               </Grid>

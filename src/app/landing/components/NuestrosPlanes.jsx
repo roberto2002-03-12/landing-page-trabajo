@@ -8,8 +8,11 @@ import 'aos/dist/aos.css';
 const buttonStyle = {
     borderColor: '#4f1616',
     color: '#4f1616',
-    borderRadius: '15px'
-}
+    borderRadius: '15px',
+    '&:hover': {
+        borderColor: '#4f1616'
+    }
+};
 
 const cardStyle = {
     width: '350px',
@@ -17,7 +20,12 @@ const cardStyle = {
     backgroundColor: 'white',
     boxShadow: '5px 8px #743b3b',
     borderRadius: '15px'
-}
+};
+
+const aLinkStyle = {
+    color: '#4f1616',
+    textDecoration: 'none'
+};
 
 export const NuestrosPlanes = memo(() => {
     const [isWideScreen, setIsWideScreen] = useState(false);
@@ -41,59 +49,95 @@ export const NuestrosPlanes = memo(() => {
                     >
                         <div className="section-5-card-title">
                             <h4>Básico</h4>
-                            <p>S/. 50 /m</p>
+                            <p>S/. 50 /mensual</p>
                         </div>
                         <div className="section-5-caracteristicas">
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Emite facturas, boletas, nota de crédito y otros documentos.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Personalizado con logo e información de tu empresa.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Hasta 400 Documentos.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Exporta reporte de venta.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Gestión de caja y POS.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Soporte gratuito e inmediato.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <UnpublishedOutlinedIcon />
+                                <UnpublishedOutlinedIcon 
+                                    sx={{
+                                        color: 'red'
+                                    }}
+                                />
                                 <span>
                                     Gestiona tu caja diaria.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <UnpublishedOutlinedIcon />
+                                <UnpublishedOutlinedIcon 
+                                    sx={{
+                                        color: 'red'
+                                    }}
+                                />
                                 <span>
                                     Incluye guía de remisión.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <UnpublishedOutlinedIcon />
+                                <UnpublishedOutlinedIcon 
+                                    sx={{
+                                        color: 'red'
+                                    }}
+                                />
                                 <span>
                                     Control de inventario.
                                 </span>
@@ -102,9 +146,11 @@ export const NuestrosPlanes = memo(() => {
                         <div className="section-5-button">
                             <Button
                                 variant="outlined"
-                                style={buttonStyle}
+                                sx={buttonStyle}
                             >
-                                Contactanos
+                                <a href="https://wa.link/6en89b" target='_blank' style={aLinkStyle}>
+                                    Contactanos
+                                </a>
                             </Button>
                         </div>
                     </Card>
@@ -117,59 +163,91 @@ export const NuestrosPlanes = memo(() => {
                     >
                         <div className="section-5-card-title">
                             <h4>Plús</h4>
-                            <p>S/. 80 /m</p>
+                            <p>S/. 80 /mensual</p>
                         </div>
                         <div className="section-5-caracteristicas">
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Emite facturas, boletas, nota de crédito y otros documentos.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Personalizado con logo e información de tu empresa.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Documentos ilimitados.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Exporta reporte de venta.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Gestión de caja y POS.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Soporte gratuito e inmediato.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon
+                                    sx={{
+                                        color: 'green'
+                                    }}
+                                />
                                 <span>
                                     Gestiona tu caja diaria.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <UnpublishedOutlinedIcon />
+                                <UnpublishedOutlinedIcon 
+                                    sx={{color:'red'}}
+                                />
                                 <span>
                                     Incluye guía de remisión.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <UnpublishedOutlinedIcon />
+                                <UnpublishedOutlinedIcon 
+                                    sx={{color:'red'}}
+                                />
                                 <span>
                                     Control de inventario.
                                 </span>
@@ -178,9 +256,11 @@ export const NuestrosPlanes = memo(() => {
                         <div className="section-5-button">
                             <Button
                                 variant="outlined"
-                                style={buttonStyle}
+                                sx={buttonStyle}
                             >
-                                Contactanos
+                                <a href="https://wa.link/6en89b" target='_blank' style={aLinkStyle}>
+                                    Contactanos
+                                </a>
                             </Button>
                         </div>
                     </Card>
@@ -193,59 +273,77 @@ export const NuestrosPlanes = memo(() => {
                     >
                         <div className="section-5-card-title">
                             <h4>Premium</h4>
-                            <p>S/. 100 /m</p>
+                            <p>S/. 100 /mensual</p>
                         </div>
                         <div className="section-5-caracteristicas">
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Emite facturas, boletas, nota de crédito y otros documentos.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Personalizado con logo e información de tu empresa.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Documentos ilimitados
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Exporta reporte de venta.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Gestión de caja y POS.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Soporte gratuito e inmediato.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Gestiona tu caja diaria.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Incluye guía de remisión.
                                 </span>
                             </div>
                             <div className="caracteristicas-opciones">
-                                <CheckCircleOutlineOutlinedIcon />
+                                <CheckCircleOutlineOutlinedIcon 
+                                    sx={{color: 'green'}}
+                                />
                                 <span>
                                     Control de inventario.
                                 </span>
@@ -254,9 +352,11 @@ export const NuestrosPlanes = memo(() => {
                         <div className="section-5-button">
                             <Button
                                 variant="outlined"
-                                style={buttonStyle}
+                                sx={buttonStyle}
                             >
-                                Contactanos
+                                <a href="" target='_blank' style={aLinkStyle}>
+                                    Contactanos
+                                </a>
                             </Button>
                         </div>
                     </Card>
